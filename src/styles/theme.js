@@ -7,17 +7,17 @@ export default {
       CARROT_100: '#FBA94C',
       TOMATO_100: '#750310',
       TOMATO_200: '#92000E',
-      TOMATO_300: 'AB222E',
-      TOMATO_400: 'AB4D55',
+      TOMATO_300: '#AB222E',
+      TOMATO_400: '#AB4D55',
 
 
       DARK_100:'#000405',
       DARK_200:'#00070A',
-      DARK_300:'000204',
+      DARK_300:'#000204',
       DARK_400:'#000A0F',
       DARK_500:'#000C12',
-      DARK_600:'00111A',
-      DARK_700:'001119',
+      DARK_600:'#00111A',
+      DARK_700:'#001119',
       DARK_800:'#0D161B',
       DARK_900:'#0D1D25',
       DARK_1000:'#192227',
@@ -32,8 +32,7 @@ export default {
       LIGHT_700:'#4D585E',
 
 
-      GRADIENTS: "(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%)",
-      GRADIENTS_200: "(180deg, #091E26 0%, #00131C 100%)",
+  
     
 
 

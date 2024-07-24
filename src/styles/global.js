@@ -17,7 +17,7 @@ export default createGlobalStyle`
     }
 
     body{
-        background-color: ${theme.COLORS.DARK_100};
+        background-color: ${theme.COLORS.DARK_400};
         color: ${theme.COLORS.LIGHT_100};
         font-size: 1.6rem;
 
@@ -25,6 +25,10 @@ export default createGlobalStyle`
 
     body , input{
         font-family: "Roboto", sans-serif;
+
+        &:focus{
+            border: 1px solid ${theme.COLORS.LIGHT_100};
+        }
     }
 
     button ,a{
@@ -33,6 +37,10 @@ export default createGlobalStyle`
 
         border: none;
         color: ${theme.COLORS.LIGHT_100};
+
+        &:hover{
+            filter: brightness(0.9);
+        }
     }
 
 
