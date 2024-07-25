@@ -1,21 +1,38 @@
 import { FiSearch  } from "react-icons/fi";
-
-
+import { HomeContainer ,Hero,HeroImgContainer , HeroText} from "./styles";
 import { Header } from "../../components/header"
 
+import heroImg from '../../assets/HeroImg.png'
 
 export function Home(){
     return(
+
+     <HomeContainer>   
         <Header>
-            <div className="iconSearch">
-
-
-            <FiSearch/>
-            </div>
+           <FiSearch/>
             <input type="text"
                 placeholder="Busque por pratos ou ingredientes"
             />
         </Header>
+
+        <main>
+
+            <Hero>
+                <HeroImgContainer>
+                    <img src={heroImg} alt="macarrons" />   
+                </HeroImgContainer> 
+
+
+                <HeroText>
+                    <h1>Sabores inigualáveis</h1>
+                    <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+                </HeroText>
+            </Hero>
+
+
+        </main>
+
+    </HomeContainer>    
     )
 
 }

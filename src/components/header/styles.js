@@ -7,9 +7,11 @@ import {DEVICE_BREAKPOINTS} from '../../styles/breakPoints'
 
 export const HeaderContainer = styled.header`
 
+        grid-area: header;
+
         width: 100%;
         height: 10.4rem;
-        padding: 2.4rem 12.3rem;
+        padding: 2.4rem 8rem;
 
         display: flex;
         align-items: center;
@@ -22,7 +24,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const Search = styled.div`
-        position: relative;
+       
         width: 100%;
         flex: 1;
 
@@ -33,7 +35,7 @@ export const Search = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-       
+      
 
         padding: 0 24px;
         
@@ -45,7 +47,7 @@ export const Search = styled.div`
             height: 4.8rem;
             padding:0 1.4rem;
             
-            text-align: center;
+     
              color: ${theme.COLORS.LIGHT_100};
 
              background:transparent;
@@ -59,18 +61,14 @@ export const Search = styled.div`
             }
        }
 
-       .iconSearch{
-        position: absolute;
-        left: 25%;
-        top: 54%;
-        transform: translateY(-50%);
-        color: ${theme.COLORS.LIGHT_500};
-        pointer-events: none;
-       }
+      
 `;
 
 export const ButtonContainer = styled.div`
-        width: 22.6rem;
+        width: 100%;
+        max-width: 22.6rem;
+        flex:1;
+        flex-wrap: wrap;
 `;
 
 export const LogOut = styled.button`
