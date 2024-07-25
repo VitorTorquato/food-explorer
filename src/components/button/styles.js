@@ -11,4 +11,9 @@ export const ButtonContainer = styled.button`
 
     background-color: ${theme.COLORS.TOMATO_100};
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
 `;

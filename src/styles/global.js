@@ -19,12 +19,12 @@ export default createGlobalStyle`
     body{
         background-color: ${theme.COLORS.DARK_400};
         color: ${theme.COLORS.LIGHT_100};
+        font-family: "Roboto", sans-serif;
         font-size: 1.6rem;
 
     }
 
-    body , input{
-        font-family: "Roboto", sans-serif;
+     input{
 
         &:focus{
             border: 1px solid ${theme.COLORS.LIGHT_100};

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
 
+import {DEVICE_BREAKPOINTS} from '../../styles/breakPoints'
+
 
 export const SignUpContainer = styled.div`
 
@@ -8,28 +10,53 @@ export const SignUpContainer = styled.div`
         display: flex;
         padding: 2rem  9rem 2rem 10rem;
         gap: 16rem;
+
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+            flex-direction: column;
+            padding: 5rem 4.7rem 5rem 4.7rem;
+            gap: 1.6rem;
+            align-items: center;
+
+            font-size: 1.4rem;
+        }
 `;
 
 export const Form = styled.form`
-    width: 476px;
-   
+     width: 476px;
+ 
   
-    padding: 1rem 6.4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+ padding:  0 6.4rem;
+ display: flex;
+        flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 
-    border: 16px;
+ border: 16px;
 
-    gap: 3.2rem;
+ gap: 3.2rem;
 
-    background-color: ${theme.COLORS.DARK_700};
+ background-color: ${theme.COLORS.DARK_700};
 
-    > a{
-        text-decoration: none;
-        font-size: 1.6rem;
-    }
+ > a{
+     text-decoration: none;
+     font-size: 1.6rem;
+ }
+
+ @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+         width: 31.6rem;
+         padding: 1rem;
+
+         
+
+         background-color: transparent;
+
+         > h1{
+             display: none;
+         }
+ }
+
+
 `;
 
 export const InputWrapper = styled.div`
@@ -51,13 +78,38 @@ export const LogoImg = styled.div`
         flex: 1;
         background-color: transparent;
 
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:1.8rem;
+
+        >h1{
+            font-weight: bold;
+        }
+
+        
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+                h1{
+                    font-size: 2.4rem;
+                }
+           
+        }
 
         >img{
+            width: 4rem;
+            height: 4.2rem;
+
+            >img{
             width: 32.4rem;
             height: 4.8rem;
+
+            @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+            width: 4.3rem;
+            height: 4.3rem;
+
+           
         }
-       
+        }
+    }
 
 `;

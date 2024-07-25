@@ -1,5 +1,5 @@
 import {SignInContainer , Form, LogoImg, InputWrapper} from './styles'
-import logoSignSinup from '../../assets/logo.png'
+import LogoSignSignUp from '../../assets/logo.png'
 
 
 import {Input} from '../../components/input'
@@ -15,9 +15,13 @@ export function SignIn() {
       <SignInContainer>
 
 
-        <LogoImg>
-          <img src={logoSignSinup} alt='logo' />
-        </LogoImg>
+      <LogoImg>
+          
+          <img src={LogoSignSignUp} alt="logo do explorer escito rocket food na frente" />
+          <h1>food explorer</h1>
+        
+      </LogoImg>
+      
         <Form>
         <h1>Faça Login</h1>
 

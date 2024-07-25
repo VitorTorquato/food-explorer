@@ -9,7 +9,10 @@ export function SignUp() {
   return (
       <SignUpContainer>
         <LogoImg>
-          <img src={LogoSignSignUp} alt="logo do explorer escito rocket food na frente" />
+          
+            <img src={LogoSignSignUp} alt="logo do explorer escito rocket food na frente" />
+            <h1>food explorer</h1>
+          
         </LogoImg>
         
         <Form>

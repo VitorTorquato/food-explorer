@@ -18,7 +18,7 @@ export const InputContainer = styled.div`
             width: 100%;
             height: 4.8rem;
             
-
+          
             padding: 1.2rem 1.4rem;
 
             background-color:transparent ;
@@ -29,6 +29,10 @@ export const InputContainer = styled.div`
             &::placeholder{
                 color: ${theme.COLORS.LIGHT_500};
             }
+        }
+
+        > svg{
+            margin-left: 1.6rem;
         }
 
 `;
