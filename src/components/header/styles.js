@@ -39,7 +39,7 @@ export const Search = styled.div`
 
         padding: 0 24px;
         
-        
+      
         >input{
             
             
@@ -113,7 +113,7 @@ export const LogoImg = styled.div`
             
 
         >img{
-            width: 3rem;
+            width: 2.6rem;
             height: 3rem;
 
         

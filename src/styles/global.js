@@ -25,7 +25,7 @@ export default createGlobalStyle`
     }
 
      input{
-
+        outline: none;
         &:focus{
             border: 1px solid ${theme.COLORS.LIGHT_100};
         }

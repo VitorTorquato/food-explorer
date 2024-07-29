@@ -14,7 +14,7 @@ export const  HomeContainer = styled.div`
         "header"
         "content";
 
-        overflow: hidden;
+        overflow: auto;
 
 
         > main{
