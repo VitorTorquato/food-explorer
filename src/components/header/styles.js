@@ -53,7 +53,7 @@ export const Search = styled.div`
              background:transparent;
              border: 0;
 
-             outline: none;
+            outline: none;
             
              &::placeholder{
                 color: ${theme.COLORS.LIGHT_500};

@@ -5,6 +5,7 @@ import { Header } from "../../components/header"
 import { Section } from "../../components/section"
 import {Carrossel } from '../../components/Carrossel'
 import {DishCard} from '../../components/dishCard'
+import {Footer} from '../../components/footer'
 
 import heroImg from '../../assets/HeroImg.png'
 import CamaraoImg from '../../assets/dishImages/Camarao.png'
@@ -236,6 +237,10 @@ export function Home(){
                 </Carrossel>
             </Section>
         </main>
+
+        <footer>
+            <Footer/>
+        </footer>
 
     </HomeContainer>    
     )

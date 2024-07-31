@@ -11,7 +11,7 @@ export const CarrosselContainer = styled.div`
     rgba(0, 10, 15, 0) );
          position: absolute;
          height: 100%;
-         width: 25rem;
+         width: 10rem;
          z-index: 1;
          content: "";
    }
@@ -21,7 +21,7 @@ export const CarrosselContainer = styled.div`
          position: absolute;
          right: 0;
          height: 100%;
-         width: 25rem;
+         width: 10rem;
          z-index: 1;
          content: "";
    }

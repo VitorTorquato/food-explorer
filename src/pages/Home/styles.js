@@ -8,11 +8,12 @@ export const  HomeContainer = styled.div`
 
 
         display: grid;
-        grid-template-rows: 104px auto;
+        grid-template-rows: 104px auto 77px;
 
         grid-template-areas: 
         "header"
-        "content";
+        "content"
+        "footer";
 
         overflow: auto;
 
@@ -24,6 +25,10 @@ export const  HomeContainer = styled.div`
                 max-width: 1122px;
                 margin: 2.6rem auto;
                 
+        }
+
+        >footer{
+                grid-area: footer;
         }
 
 `;
