@@ -6,8 +6,10 @@ export const TextButtonContainer = styled.button`
         background: transparent;
 
         
-        font-size: 14px;
+        font-size: 2.4rem;
         color:${({theme}) => theme.COLORS.LIGHT_300};
+        font-family: 'Poppins' , sans-serif;
+        font-weight: bold;
         
 
         display: flex;
