@@ -23,7 +23,7 @@ export const DetailsContainer = styled.div`
 
                 width: 100%;
                 max-width: 1122px;
-                margin: 2.6rem auto;
+                margin: 4.2rem auto 15.5rem;
                 
         }
 
@@ -40,6 +40,7 @@ export const DishContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 5rem;
+    margin-top: 4.2rem;
 
 
     .food-description{

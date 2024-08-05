@@ -1,35 +1,15 @@
-import { FiHeart,FiEdit, FiMinus, FiPlus } from "react-icons/fi";
-import {DishCardContainer,DishImg,MarkDownOrEditBtn ,IcludeToMyOrder} from './styled'
+import { FiHeart,FiEdit} from "react-icons/fi";
+import {DishCardContainer,DishImg,MarkDownOrEditBtn } from './styled'
+import {AddRemoveOrder} from '../../components/IcludeOrder'
 
-import {Button} from '../button'
-import { useState } from "react";
+
 
 
 
 export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
 
 
-    const [AddRemoveDish , setAddRemoveDish] = useState(0);
-
-
-    function addDish(){
-        setAddRemoveDish(prevState => {
-             return prevState + 1
-             
-        })
-    }
-    function removeDish(){
-        setAddRemoveDish(prevState => {
-            
-           if(prevState < 1){
-            setAddRemoveDish(0)
-           } 
-            
-            return prevState - 1
-       })
-        
-       
-    }
+   
     
     let isAdm = true;
    
@@ -53,24 +33,7 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
 
             <span>{price}</span>
                 
-                
-            <IcludeToMyOrder>
-                <div className="addRemoveItems">
-                    <FiMinus 
-                    onClick={removeDish}
-                     />
-                    <span>{AddRemoveDish}</span>
-                    <FiPlus
-                    onClick={addDish}
-                    />
-                </div>
-
-                <div className="IcludeOrderBtn">
-                    <Button
-                    title='incluir'
-                    />
-                </div>
-            </IcludeToMyOrder>     
+                <AddRemoveOrder/>
         
         
                 

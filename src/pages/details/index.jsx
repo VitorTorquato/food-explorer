@@ -1,12 +1,13 @@
 import { FiSearch } from "react-icons/fi";
 import {DetailsContainer , DishContainer} from './styles'
 
-import { FiArrowLeft } from "react-icons/fi";
+import { PiCaretLeftBold } from "react-icons/pi";
 
 import { Header} from '../../components/header'
 import { Footer} from '../../components/footer'
 import { TextButton} from '../../components/textButton'
 import {IngredientsTags} from '../../components/IngredientsTags'
+import {AddRemoveOrder} from '../../components/IcludeOrder'
 
 import CamaraoImg from '../../assets/dishImages/Camarao.png'
  
@@ -37,7 +38,7 @@ export function Details(){
             <main>
             <TextButton
              title='Voltar'
-             icon={FiArrowLeft}   
+             icon={PiCaretLeftBold}   
             />
               <DishContainer>
               
@@ -63,7 +64,10 @@ export function Details(){
 
                     </div>
 
+
+                <AddRemoveOrder/>
                 </div>
+
 
               </DishContainer>
 
