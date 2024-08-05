@@ -11,7 +11,7 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
 
    
     
-    let isAdm = true;
+    let isAdm = false;
    
     return(
         <DishCardContainer

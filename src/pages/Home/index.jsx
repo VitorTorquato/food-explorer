@@ -79,7 +79,7 @@ export function Home(){
         category: 'desert',
         ID:8,
         dishImg:prune,
-        dishName:'Spaguetti Gambe',
+        dishName:'Prugna pie',
         description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
@@ -87,7 +87,7 @@ export function Home(){
         category: 'desert',
         ID:8,
         dishImg:prune,
-        dishName:'Spaguetti Gambe',
+        dishName:'Prugna pie',
         description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },

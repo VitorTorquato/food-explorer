@@ -9,6 +9,7 @@ import {Button} from '../button'
 
 export function Header({children}){
 
+    let isAdm = true;    
     return(
          <HeaderContainer>
             <LogoImg>
@@ -19,10 +20,12 @@ export function Header({children}){
                 {children}
             </Search>
             <ButtonContainer>
-            <Button
-                icon={TfiReceipt }
-                title='Pedidos (0)'
-            />
+            {
+                isAdm ? <Button title='Novo prato'/> :  <Button icon={TfiReceipt } title='Pedidos (0)'/>
+
+            }
+            
+           
 
             </ButtonContainer>
             <LogOut>

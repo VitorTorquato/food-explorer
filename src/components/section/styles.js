@@ -6,14 +6,14 @@ export const SectionContainer = styled.section`
      
         background-color:${({theme}) => theme.COLORS.DARK_200};
         color: ${({theme}) => theme.COLORS.LIGHT_300};
-        padding: 3.2rem 0;
+        margin: 2.4rem 0;
         
         
-        margin-top: 6.4rem;
+        
 
         
         >h2{
-                margin-bottom:3.2rem ;
+                margin-bottom: 2.4rem;
                 font-family: 'Poppins' , sans-serif;
                 font-size: 3rem;
                 line-height: 1.4;

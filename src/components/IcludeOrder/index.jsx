@@ -31,7 +31,8 @@ export function AddRemoveOrder(){
        
     }
 
-   
+   let isAdm = false;
+
     return(
 
         <AddRemoveOrderContainer>
@@ -45,10 +46,13 @@ export function AddRemoveOrder(){
                     />
                 </div>
 
+
                 <div className="IcludeOrderBtn">
-                    <Button
-                    title='incluir'
-                    />
+                {
+
+                    isAdm ? <Button title='incluir'/> : <Button title='Editar prato'/>
+
+                }
                 </div>
         </AddRemoveOrderContainer>
     )
