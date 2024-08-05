@@ -63,16 +63,16 @@ export function Home(){
         category: 'desert',
         ID:6,
         dishImg:prune,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Prugna pie',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
         {
         category: 'desert',
         ID:7,
         dishImg:prune,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Prugna pie',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
         {
@@ -80,7 +80,7 @@ export function Home(){
         ID:8,
         dishImg:prune,
         dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
         {
@@ -88,55 +88,55 @@ export function Home(){
         ID:8,
         dishImg:prune,
         dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
         {
         category: 'desert',
         ID:9,
         dishImg:prune,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Prugna pie',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
         {
         category: 'drinks',
         ID:10,
         dishImg:suco,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Prugna pie',
+        description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
     },
         {
         category: 'drinks',
         ID:11,
         dishImg:suco,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Suco de Maracuja',
+        description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
     },
         {
         category: 'drinks',
         ID:12,
         dishImg:suco,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Suco de Maracuja',
+        description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
     },
         {
         category: 'drinks',
         ID:13,
         dishImg:suco,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Suco de Maracuja',
+        description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
     },
         {
         category: 'drinks',
         ID:14,
         dishImg:suco,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishName:'Suco de Maracuja',
+        description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
     },
 ]
@@ -190,8 +190,10 @@ export function Home(){
                         
                     }
                 </Carrossel>
+             
+                
             </Section>
-
+            
 
             <Section title='Sobremesas'>
             <Carrossel>
@@ -236,6 +238,8 @@ export function Home(){
                     }
                 </Carrossel>
             </Section>
+
+
         </main>
 
         <footer>
