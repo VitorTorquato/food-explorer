@@ -1,4 +1,4 @@
-import {AddDishContainer ,Form ,FileInput,UploadButton,InputWrapper,BtnSubmit } from './styles'
+import {EditDishContainer ,Form ,FileInput,UploadButton,InputWrapper,BtnSubmit,EditDishBtn } from './styles'
 
 import { FiSearch , FiUpload  } from "react-icons/fi";
 import { PiCaretLeftBold } from "react-icons/pi";
@@ -15,9 +15,9 @@ import {IngredientsItems} from '../../components/ingredientsItem'
 
 
 
-export function AddDish(){
+export function EditDish(){
     return(
-        <AddDishContainer>
+        <EditDishContainer>
         <Header>
         <FiSearch/>
     <input type="text"
@@ -32,7 +32,7 @@ export function AddDish(){
              icon={PiCaretLeftBold}   
             />
     <Section
-        title='Adicionar prato'
+        title='Editar prato'
     >
 
      <Form>
@@ -113,9 +113,13 @@ export function AddDish(){
            </div>
 
             <div className='Btn-save-update'>
-                <BtnSubmit>
-                    Salvar as alterações
-                </BtnSubmit>
+            <EditDishBtn>
+                Excluir prato
+            </EditDishBtn>
+
+            <BtnSubmit>
+                 Salvar as alterações
+            </BtnSubmit>
             </div>
 
 
@@ -129,7 +133,7 @@ export function AddDish(){
     </main>
 
     <footer><Footer/></footer>
-    </AddDishContainer>
+    </EditDishContainer>
 
     )
 }

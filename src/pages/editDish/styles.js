@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
 
-export const AddDishContainer = styled.div`
+export const EditDishContainer = styled.div`
 
     
 width: 100%;
@@ -103,8 +103,11 @@ export const Form = styled.form`
     }
 
     > .Btn-save-update{
-        width: 17.2rem;
+        
         position: absolute;
+
+        display: flex;
+        gap: 3.2rem;
         right: 0;
         bottom: -80px;
     }
@@ -119,7 +122,7 @@ export const Form = styled.form`
 export const BtnSubmit = styled.button`
 
 
-    width: 100%;
+    width: 17.2rem;
     height: 4.8rem;
 
     border-radius: 5px;
@@ -127,8 +130,15 @@ export const BtnSubmit = styled.button`
     background-color: ${({theme}) => theme.COLORS.TOMATO_400};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
 
-    
+   
+`;
+export const EditDishBtn = styled(BtnSubmit)`
+    width:13.5rem ;
+    background-color: ${({theme}) => theme.COLORS.DARK_800};
 
+
+
+ 
 `;
 
 
