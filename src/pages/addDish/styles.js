@@ -36,19 +36,60 @@ width: 100%;
 
 `
 export const Form = styled.form`
+    width: 100%;
+
+    > .first-row-form{
         display: flex;
+        align-items: center;
+        gap: 1.6rem;
+
+
+        > .img-input{
+                width: 35rem;
+        }
+
+        > .name-input{
+                width: 100%;
+        }
+
+        > .catergory-input{
+                width: 64rem;
+        }
+    }
+
+    > .second-row-grid{
+        display: grid;
+        grid-template-columns: 1fr 25rem;
+        grid-template-areas: 
+        'ingridients price'
+        'textarea textarea';
+        gap: 1.6rem;
+
+        > .ingridiesnts-input{
+                grid-area: ingridients;
+        }
+
+        > .price-input{
+                grid-area: price;
+        }
+
+
+        > .text-area{
+                grid-area: textarea;
+                width: 100%;
+                height: 30rem;
+        }
         
-        gap: 3.2rem;
+    }
 
-        .Img-imput-wrapper{
-                width: 50rem;
-        }
 
-        .catergory-input-wrapper{
-                width: 60rem;
-        }
+
+ 
+    
 
 `;
+
+
 
 export const FileInput = styled.input`
   display: none;
@@ -58,11 +99,11 @@ export const FileInput = styled.input`
 export const UploadButton = styled.label`
             width: 100%;
             height: 4.8rem;
-            
+            border-radius: 5px;
           
             padding: 1.2rem 1.4rem;
 
-            background-color:${theme.COLORS.DARK_800};
+            background-color:${theme.COLORS.DARK_900};
             border: 0;
 
             color: ${theme.COLORS.LIGHT_100};

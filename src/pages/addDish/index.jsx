@@ -33,46 +33,71 @@ export function AddDish(){
     >
 
      <Form>
-        <InputWrapper className='Img-imput-wrapper'>
-            
-        <label htmlFor="Dish-img">Imagem do prato</label>
-        <FileInput id="Dish-img" type="file" />    
-        <UploadButton  htmlFor="Dish-img">
-            <FiUpload/>
-            Imagem do prato
-        </UploadButton>
+   
+ 
+            <div className='first-row-form'>
+                <InputWrapper className='img-input'>
+                <label htmlFor="Dish-img">Imagem do prato</label>
+                <FileInput id="Dish-img" type="file" />
+                <UploadButton  htmlFor="Dish-img">
+                    <FiUpload/>
+                    Imagem do prato
+                </UploadButton>
+                </InputWrapper>
+                <InputWrapper className='name-input'>
+                
+                <label htmlFor="dish-name">nome</label>
+                <Input
+                id='dish-name'
+                placeholder='Ex.: Salada Ceasar'
+                type='text'
+                />
+                </InputWrapper>
+                <InputWrapper className='catergory-input'>
+                
+                <label htmlFor="dish-category">Categoria</label>
+                <Input
+                id='dish-category'
+                placeholder='Categoria'
+                list='category-list'
+                />
+                 <datalist id="category-list">
+                    <option value="Refeição"/>
+                    <option value="Sobremesa"/>
+                    <option value="Bebida"/>
+                </datalist>
+                </InputWrapper>
+            </div>
 
-        </InputWrapper>
-      
-        <InputWrapper>
-            
-        <label htmlFor="dish-name">nome</label>
-        <Input
-        id='dish-name'
-        placeholder='Ex.: Salada Ceasar'
-        type='text'
-        />
-       
+           <div className='second-row-grid'>
+               <InputWrapper className='ingridiesnts-input'>
+               
+                <label htmlFor="ingridients">Ingredientes</label>
+                <Input
+                id='ingridients'
+                placeholder='Ex.: Salada Ceasar'
+                type='text'
+                />
+                </InputWrapper>
 
-        </InputWrapper>
-      
-        <InputWrapper className='catergory-input-wrapper'>
-            
-        <label htmlFor="dish-category">Categoria</label>
-        <Input
-        id='dish-category'
-        placeholder='Categoria'
-        list='category-list'
-        />
-         <datalist id="category-list">
-            <option value="Refeição"/>
-            <option value="Sobremesa"/>
-            <option value="Bebida"/>
-        </datalist>
-       
+                <InputWrapper className='price-input'>
+               
+                <label htmlFor="price">preço</label>
+                <Input
+                id='price'
+                placeholder='Ex.: Salada Ceasar'
+                type='text'
+                />
+                </InputWrapper>
 
-        </InputWrapper>
+                
 
+
+                
+
+               
+           </div>
+  
 
      </Form>
     </Section>
