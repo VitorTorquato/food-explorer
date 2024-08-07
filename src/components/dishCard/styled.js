@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DishCardContainer = styled.button`
+export const DishCardContainer = styled.div`
         position:relative;
          
         width: 35rem;
@@ -20,12 +20,15 @@ export const DishCardContainer = styled.button`
 
 
         color: ${({theme}) => theme.COLORS.LIGHT_300};
+        
+       
+        
         >h1{
             font-family: 'Poppins' , sans-serif;
             font-size: 2.4rem;
             font-weight: bold;
         }
-
+        
         >p{
             font-size: 1.4rem;
             line-height: 1.6;
@@ -40,15 +43,17 @@ export const DishCardContainer = styled.button`
 
 `;
 
+
+
 export const DishImg = styled.div`
     > img{
         width: 100%;
     height: 17.6rem;
-
+    
     overflow: hidden;
     object-fit: cover;
-    }
-    
+}
+
 `;
 
 export const MarkDownOrEditBtn  = styled.div`

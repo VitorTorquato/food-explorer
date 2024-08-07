@@ -2,12 +2,23 @@ import {HeaderContainer, LogoImg, Search,ButtonContainer ,LogOut} from './styles
 import { FiLogOut} from "react-icons/fi";
 import { TfiReceipt } from "react-icons/tfi";
 
+
+import { useNavigate } from 'react-router-dom';
+
 import LogoSignSignUp from '../../assets/logo.png'
 
 
 import {Button} from '../button'
 
 export function Header({children}){
+
+    const navigate = useNavigate();
+
+
+    function handleNewDish(){
+        navigate('/adicionar')
+    }
+
 
     let isAdm = true;    
     return(
@@ -21,7 +32,7 @@ export function Header({children}){
             </Search>
             <ButtonContainer>
             {
-                isAdm ? <Button title='Novo prato'/> :  <Button icon={TfiReceipt } title='Pedidos (0)'/>
+                isAdm ?   <Button icon={TfiReceipt } title='Pedidos (0)'/> : <Button onClick={handleNewDish} title='Novo prato'/>
 
             }
             

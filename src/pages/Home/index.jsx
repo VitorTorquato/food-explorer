@@ -1,5 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 import { HomeContainer ,Hero,HeroImgContainer , HeroText} from "./styles";
+import { useNavigate } from "react-router-dom";
+
 
 import { Header } from "../../components/header"
 import { Section } from "../../components/section"
@@ -16,6 +18,13 @@ import suco from '../../assets/dishImages/suco.png'
 
 export function Home(){
 
+
+   
+    const navigate = useNavigate();
+
+    function handleDishDetails(){
+        navigate('/detalhes');
+    }
 
     const Dishs = [
         {
@@ -180,6 +189,7 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
+                                
 
 />
                         ))
@@ -205,8 +215,8 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
-
-/>
+                               
+                                />  
                         ))
                       
                         
@@ -227,8 +237,8 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
-
-/>
+                                
+                            />
                         ))
                       
                         

@@ -3,7 +3,7 @@ import { ButtonContainer } from "./styles";
 
 
 
-export function Button({ icon:Icon, title , ...rest}){
+export function Button({ icon:Icon,Price:price, title ,...rest}){
 
     return(
         <ButtonContainer
@@ -12,6 +12,7 @@ export function Button({ icon:Icon, title , ...rest}){
         >
             {Icon && <Icon size={20}/>}
             {title}
+            {price && price}
 
         </ButtonContainer>
     )

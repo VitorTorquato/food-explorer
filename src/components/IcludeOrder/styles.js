@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AddRemoveOrderContainer = styled.div`
 
 
-    width: 21rem;
+    max-width: fit-content;
 
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ export const AddRemoveOrderContainer = styled.div`
     gap: 1.6rem;
 
     .IcludeOrderBtn{
-        width: 9.6rem;
+        width: 100%;
     }
 
     .addRemoveItems{

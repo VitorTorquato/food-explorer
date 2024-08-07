@@ -2,12 +2,19 @@ import { FiMinus, FiPlus } from 'react-icons/fi'
 import { useState } from 'react';
 import {AddRemoveOrderContainer} from './styles'
 
+import { useNavigate } from 'react-router-dom';
+
 import {Button} from '../../components/button'
 
 
 
-export function AddRemoveOrder(){
+export function AddRemoveOrder({price}){
    
+    const navigate = useNavigate();
+
+    function handleEditDish(){
+        navigate('/editar')
+    }
    
     const [AddRemoveDish , setAddRemoveDish] = useState(0);
 
@@ -35,7 +42,7 @@ export function AddRemoveOrder(){
 
     return(
 
-        <AddRemoveOrderContainer>
+        <AddRemoveOrderContainer >
               <div className="addRemoveItems">
                     <FiMinus 
                     onClick={removeDish}
@@ -50,7 +57,7 @@ export function AddRemoveOrder(){
                 <div className="IcludeOrderBtn">
                 {
 
-                    isAdm ? <Button title='incluir'/> : <Button title='Editar prato'/>
+                    isAdm ? <Button  onClick={handleEditDish} title='Editar prato'/> : <Button title='Incluir ' Price={price}/> 
 
                 }
                 </div>

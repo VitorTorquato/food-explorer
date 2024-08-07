@@ -1,6 +1,8 @@
 import { FiSearch } from "react-icons/fi";
 import {DetailsContainer , DishContainer} from './styles'
 
+import { useNavigate } from "react-router-dom";
+
 import { PiCaretLeftBold } from "react-icons/pi";
 
 import { Header} from '../../components/header'
@@ -13,6 +15,14 @@ import CamaraoImg from '../../assets/dishImages/Camarao.png'
  
 export function Details(){
     
+
+    const navigate = useNavigate();
+
+    function handleBack(){
+
+        navigate(-1)
+    }
+
     const Dishs = {
         category: 'meal',
         ID:1,
@@ -38,7 +48,8 @@ export function Details(){
             <main>
             <TextButton
              title='Voltar'
-             icon={PiCaretLeftBold}   
+             icon={PiCaretLeftBold}
+             onClick={handleBack}   
             />
               <DishContainer>
               
@@ -62,10 +73,10 @@ export function Details(){
                         ))
                     }
 
-                    </div>
-
-
-                <AddRemoveOrder/>
+                </div>
+                     <AddRemoveOrder 
+                        price={Dishs.price}
+                     />
                 </div>
 
 

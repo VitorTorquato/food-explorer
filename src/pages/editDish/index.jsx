@@ -1,5 +1,7 @@
 import {EditDishContainer ,Form ,FileInput,UploadButton,InputWrapper,BtnSubmit,EditDishBtn } from './styles'
 
+import { useNavigate } from 'react-router-dom';
+
 import { FiSearch , FiUpload  } from "react-icons/fi";
 import { PiCaretLeftBold } from "react-icons/pi";
 
@@ -16,6 +18,16 @@ import {IngredientsItems} from '../../components/ingredientsItem'
 
 
 export function EditDish(){
+
+    const navigate = useNavigate();
+
+    function handleBack(){
+
+        navigate(-1)
+    }
+
+
+
     return(
         <EditDishContainer>
         <Header>
@@ -29,7 +41,8 @@ export function EditDish(){
     <main>
     <TextButton
              title='Voltar'
-             icon={PiCaretLeftBold}   
+             icon={PiCaretLeftBold}
+             onClick={handleBack}   
             />
     <Section
         title='Editar prato'
