@@ -20,7 +20,7 @@ export function Header({children}){
     }
 
 
-    let isAdm = true;    
+    let isAdm = false;    
     return(
          <HeaderContainer>
             <LogoImg>
@@ -32,7 +32,7 @@ export function Header({children}){
             </Search>
             <ButtonContainer>
             {
-                isAdm ?   <Button icon={TfiReceipt } title='Pedidos (0)'/> : <Button onClick={handleNewDish} title='Novo prato'/>
+                isAdm ?   <Button onClick={handleNewDish} title='Novo prato'/> : <Button icon={TfiReceipt } title='Pedidos (0)'/> 
 
             }
             

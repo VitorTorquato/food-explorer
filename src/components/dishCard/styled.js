@@ -2,8 +2,20 @@ import styled from "styled-components";
 
 export const DishCardContainer = styled.div`
         position:relative;
-         
         width: 35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+         
+     
+          
+        
+
+
+`;
+
+export const  DishDescriptionContainer = styled.button`
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -15,14 +27,14 @@ export const DishCardContainer = styled.div`
 
 
         background: ${({theme}) => theme.COLORS.DARK_200};
-
+        border: none;
+        background: none;
         border-radius: 8px;
 
 
         color: ${({theme}) => theme.COLORS.LIGHT_300};
-        
-       
-        
+
+
         >h1{
             font-family: 'Poppins' , sans-serif;
             font-size: 2.4rem;
@@ -40,12 +52,12 @@ export const DishCardContainer = styled.div`
             color: ${({theme}) => theme.COLORS.CAKE_200};
             
         }
-
 `;
 
 
 
 export const DishImg = styled.div`
+ 
     > img{
         width: 100%;
     height: 17.6rem;
@@ -56,11 +68,14 @@ export const DishImg = styled.div`
 
 `;
 
-export const MarkDownOrEditBtn  = styled.div`
+export const MarkDownOrEditBtn  = styled.button`
 
-position: absolute;
-top: 16px;
-right: 18px;
+
+width: 100%;
+text-align: end;
+
+border: none;
+background: none;
 
 > svg{
         width:2.4rem;

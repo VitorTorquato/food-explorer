@@ -57,7 +57,7 @@ export function AddRemoveOrder({price}){
                 <div className="IcludeOrderBtn">
                 {
 
-                    isAdm ? <Button  onClick={handleEditDish} title='Editar prato'/> : <Button title='Incluir ' Price={price}/> 
+                    isAdm ?  <Button title='Editar prato' onClick={handleEditDish}/> : <Button title='incluir ' Price={price}/> 
 
                 }
                 </div>

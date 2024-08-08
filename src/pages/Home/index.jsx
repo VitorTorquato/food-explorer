@@ -23,6 +23,7 @@ export function Home(){
     const navigate = useNavigate();
 
     function handleDishDetails(){
+        
         navigate('/detalhes');
     }
 
@@ -189,6 +190,7 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
+                                
                                 
 
 />

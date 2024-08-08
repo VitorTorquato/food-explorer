@@ -74,9 +74,9 @@ export function Details(){
                     }
 
                 </div>
-                     <AddRemoveOrder 
-                        price={Dishs.price}
-                     />
+                    <AddRemoveOrder price={Dishs.price}/> 
+                    
+                
                 </div>
 
 

@@ -1,5 +1,5 @@
 import { FiHeart,FiEdit} from "react-icons/fi";
-import {DishCardContainer,DishImg,MarkDownOrEditBtn } from './styled'
+import {DishCardContainer,DishImg,MarkDownOrEditBtn,DishDescriptionContainer } from './styled'
 import {AddRemoveOrder} from '../../components/IcludeOrder'
 
 import { useNavigate } from "react-router-dom";
@@ -13,10 +13,13 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
     const navigate = useNavigate();
 
     function handleDishDetails(){
-        navigate('/detalhes');
+       navigate('/detalhes');
+    }
+    function handleDishEdit(){
+        navigate('/editar');
     }
     
-    let isAdm = false;
+    let isAdm = true;
    
     const [active, setActive] = useState(false);
 
@@ -29,23 +32,27 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
         >
             <MarkDownOrEditBtn>
                 {
-                    isAdm ? <FiEdit onClick={handleDishDetails}/> : <FiHeart onClick={handleClick}
-                    fill={active ? "red" : "none"}/> 
+                    isAdm ? <FiEdit onClick={handleDishEdit}/> : <FiHeart onClick={handleClick}
+                    fill={active ? "red" : "none"}
+                    color={active ? 'red' : null}
+                    /> 
                 }
             </MarkDownOrEditBtn>
 
-                    <DishImg>
+                <DishDescriptionContainer onClick={handleDishDetails}>
+                    <DishImg   >
                     <img src={dishImg} alt="dishImg" />
                     </DishImg>
                     <h1>{dishName}</h1>
                     
                     <p>{description}</p>
                     <span>{price}</span>
-                
+                </DishDescriptionContainer>
            
-                
-                <AddRemoveOrder/>
+                {
+                  isAdm ? <></> : <AddRemoveOrder/>
         
+                }
         
                 
         </DishCardContainer>
