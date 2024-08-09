@@ -1,13 +1,14 @@
 import { FiSearch } from "react-icons/fi";
 import { HomeContainer ,Hero,HeroImgContainer , HeroText} from "./styles";
-import { useNavigate } from "react-router-dom";
-
+//import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import { Header } from "../../components/header"
 import { Section } from "../../components/section"
 import {Carrossel } from '../../components/Carrossel'
 import {DishCard} from '../../components/dishCard'
 import {Footer} from '../../components/footer'
+
 
 import heroImg from '../../assets/HeroImg.png'
 import CamaraoImg from '../../assets/dishImages/Camarao.png'
@@ -19,13 +20,7 @@ import suco from '../../assets/dishImages/suco.png'
 export function Home(){
 
 
-   
-    const navigate = useNavigate();
-
-    function handleDishDetails(){
-        
-        navigate('/detalhes');
-    }
+ 
 
     const Dishs = [
         {
@@ -151,16 +146,33 @@ export function Home(){
     },
 ]
 
+const [myOrders , setMyOrders] = useState([]);
 
-    
+
+function handleMyOrders(data){
+        setMyOrders([...myOrders,data])
+        console.log(myOrders.length)
+}
+   
     return(
 
-     <HomeContainer>   
-        <Header>
+        <HomeContainer>   
+           <Header 
+           orderAmount={myOrders.length}
+        
+
+    
+      
+           
+           >
            <FiSearch/>
             <input type="text"
                 placeholder="Busque por pratos ou ingredientes"
             />
+            
+          
+         
+
         </Header>
 
         <main>
@@ -190,7 +202,7 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
-                                
+                                handleMyOrders={handleMyOrders}
                                 
 
 />
@@ -217,7 +229,7 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
-                               
+                                handleMyOrders={handleMyOrders}
                                 />  
                         ))
                       
@@ -239,7 +251,7 @@ export function Home(){
                                 dishName={dish.dishName}
                                 description={dish.description}
                                 price={dish.price}
-                                
+                                handleMyOrders={handleMyOrders}
                             />
                         ))
                       

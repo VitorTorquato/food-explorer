@@ -1,28 +1,32 @@
-import {HeaderContainer, LogoImg, Search,ButtonContainer ,LogOut} from './styles'
+import {HeaderContainer, LogoImg, Search,LogOut,ButtonContainer} from './styles'
 import { FiLogOut} from "react-icons/fi";
 import { TfiReceipt } from "react-icons/tfi";
 
+import {Button} from '../../components/button'
 
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 import LogoSignSignUp from '../../assets/logo.png'
+import { useState,useEffect } from 'react';
 
 
-import {Button} from '../button'
-
-export function Header({children}){
-
-    const navigate = useNavigate();
 
 
-    function handleNewDish(){
-        navigate('/adicionar')
-    }
+export function Header({children ,orderAmount = 0}){
+
+    const [orderAmountLabel , setOrderAmountLabel] = useState(orderAmount)
 
 
-    let isAdm = false;    
+
+    useEffect(() => {
+        setOrderAmountLabel(orderAmount);
+    },[orderAmountLabel] )
+
+
+    let isAdm = false;
+
     return(
-         <HeaderContainer>
+         <HeaderContainer >
             <LogoImg>
                 <img src={LogoSignSignUp} alt="logo Food explorer" />
                 <h1>Food explorer</h1>
@@ -30,14 +34,17 @@ export function Header({children}){
             <Search>
                 {children}
             </Search>
-            <ButtonContainer>
-            {
-                isAdm ?   <Button onClick={handleNewDish} title='Novo prato'/> : <Button icon={TfiReceipt } title='Pedidos (0)'/> 
-
-            }
+            <ButtonContainer
             
-           
-
+            >
+                {
+                    isAdm ? <Button>NovoPrato</Button> :
+                <Button icon={TfiReceipt}>
+                   pedidos
+                    <span>{orderAmount}</span>
+                  
+                </Button>
+                }
             </ButtonContainer>
             <LogOut>
                 <FiLogOut/>

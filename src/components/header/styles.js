@@ -69,6 +69,8 @@ export const ButtonContainer = styled.div`
         max-width: 22.6rem;
         flex:1;
         flex-wrap: wrap;
+
+       
 `;
 
 export const LogOut = styled.button`

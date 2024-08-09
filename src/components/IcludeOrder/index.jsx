@@ -1,14 +1,15 @@
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import { useState } from 'react';
-import {AddRemoveOrderContainer} from './styles'
+import {AddRemoveOrderContainer,ButtonOrder} from './styles'
 
 import { useNavigate } from 'react-router-dom';
 
-import {Button} from '../../components/button'
 
 
 
-export function AddRemoveOrder({price}){
+
+
+export function AddRemoveOrder({price,handleMyorders}){
    
     const navigate = useNavigate();
 
@@ -28,12 +29,12 @@ export function AddRemoveOrder({price}){
     function removeDish(){
         setAddRemoveDish(prevState => {
             
-           if(prevState < 1){
-            setAddRemoveDish(0)
-           } 
-            
-            return prevState - 1
-       })
+            if(prevState < 1){
+             setAddRemoveDish(0)
+            } 
+             
+             return prevState - 1
+        })
         
        
     }
@@ -42,12 +43,12 @@ export function AddRemoveOrder({price}){
 
     return(
 
-        <AddRemoveOrderContainer >
+        <AddRemoveOrderContainer>
               <div className="addRemoveItems">
                     <FiMinus 
                     onClick={removeDish}
                      />
-                    <span>{AddRemoveDish}</span>
+                    <span>{String(AddRemoveDish)}</span>
                     <FiPlus
                     onClick={addDish}
                     />
@@ -57,7 +58,13 @@ export function AddRemoveOrder({price}){
                 <div className="IcludeOrderBtn">
                 {
 
-                    isAdm ?  <Button title='Editar prato' onClick={handleEditDish}/> : <Button title='incluir ' Price={price}/> 
+                    isAdm ?  <ButtonOrder  onClick={() => ({handleEditDish})}>Editar Prato</ButtonOrder> : <ButtonOrder onClick={() => {
+                        if(AddRemoveDish === 0){
+                            return
+                        }else{
+                            handleMyorders({AddRemoveDish})
+                        }
+                    }} >Incluir {price}</ButtonOrder> 
 
                 }
                 </div>

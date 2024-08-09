@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 
-export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
+export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrders,...rest}){
 
 
     const navigate = useNavigate();
@@ -19,13 +19,17 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
         navigate('/editar');
     }
     
-    let isAdm = true;
-   
+    
     const [active, setActive] = useState(false);
-
+    
     const handleClick = () => {
-       setActive(!active);
+        setActive(!active);
     };
+    
+    let isAdm = false;
+
+  
+
     return(
         <DishCardContainer
         {...rest}
@@ -50,7 +54,9 @@ export function DishCard({dishId,dishImg,dishName,description,price,...rest}){
                 </DishDescriptionContainer>
            
                 {
-                  isAdm ? <></> : <AddRemoveOrder/>
+                  isAdm ? <></> : <AddRemoveOrder
+                    handleMyorders={handleMyOrders}
+                  />
         
                 }
         
