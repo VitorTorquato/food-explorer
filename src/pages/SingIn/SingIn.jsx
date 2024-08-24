@@ -17,7 +17,7 @@ export function SignIn() {
 
       <LogoImg>
           
-          <img src={LogoSignSignUp} alt="logo do explorer escito rocket food na frente" />
+          <img src={LogoSignSignUp} alt="logo do explorer escrito rocket food na frente" />
           <h1>food explorer</h1>
         
       </LogoImg>
