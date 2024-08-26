@@ -1,15 +1,34 @@
+import { useState } from 'react'
+
 import {SignInContainer , Form, LogoImg, InputWrapper} from './styles'
 import LogoSignSignUp from '../../assets/logo.png'
+
+
+import { Link } from 'react-router-dom'
 
 
 import {Input} from '../../components/input'
 import {Button} from '../../components/button'
 
+import {useAuth} from '../../hook/auth'
 
 
-import { Link } from 'react-router-dom'
 
 export function SignIn() {
+
+  const [email , setEmail] = useState('');
+  const [password , setPassword] = useState('');
+
+  const {signIn} = useAuth();
+
+
+
+  function handleSingIn(event){
+    event.preventDefault();
+   
+    signIn({email,password})
+  }
+
 
   return (
       <SignInContainer>
@@ -33,6 +52,7 @@ export function SignIn() {
           id='email'       
           placeholder='Exemplo: exemplo@exemplo.com.br '
           type="email"
+          onChange={e => setEmail(e.target.value)}
         />
       </InputWrapper>  
 
@@ -42,11 +62,13 @@ export function SignIn() {
           id='password'
           placeholder='No mínimo 6 caracteres'
           type="password"
+          onChange={e => setPassword(e.target.value)}
         />
       </InputWrapper>  
         <Button
         
         title='Entrar'
+        onClick={handleSingIn}
         />
 
         <Link to='register'>Criar uma conta</Link>

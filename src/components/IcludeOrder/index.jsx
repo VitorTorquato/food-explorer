@@ -4,17 +4,22 @@ import {AddRemoveOrderContainer,ButtonOrder} from './styles'
 
 import { useNavigate } from 'react-router-dom';
 
+import {useAuth} from '../../hook/auth'
+
 
 
 
 
 
 export function AddRemoveOrder({price,handleMyorders}){
-   
+    
+    const {user} = useAuth();
+    let isAdm = user.role === 'admin';
+    
     const navigate = useNavigate();
 
     function handleEditDish(){
-        navigate('/editar')
+        navigate('/edit')
     }
    
     const [AddRemoveDish , setAddRemoveDish] = useState(0);
@@ -39,12 +44,14 @@ export function AddRemoveOrder({price,handleMyorders}){
        
     }
 
-   let isAdm = false;
 
     return(
 
         <AddRemoveOrderContainer>
-              <div className="addRemoveItems">
+              {
+                isAdm? <></> :
+
+                <div className="addRemoveItems">
                     <FiMinus 
                     onClick={removeDish}
                      />
@@ -53,12 +60,12 @@ export function AddRemoveOrder({price,handleMyorders}){
                     onClick={addDish}
                     />
                 </div>
-
+                }
 
                 <div className="IcludeOrderBtn">
                 {
 
-                    isAdm ?  <ButtonOrder  onClick={() => ({handleEditDish})}>Editar Prato</ButtonOrder> : <ButtonOrder onClick={() => {
+                    isAdm ?  <ButtonOrder  onClick={handleEditDish}>Editar Prato</ButtonOrder> : <ButtonOrder onClick={() => {
                         if(AddRemoveDish === 0){
                             return
                         }else{

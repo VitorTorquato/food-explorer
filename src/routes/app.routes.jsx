@@ -7,7 +7,7 @@ import { AddDish } from '../pages/addDish'
 import { EditDish } from '../pages/editDish'
 
 
-export function AdmRoutes(){
+export function AppRoutes(){
 
     return(
         <Routes>
@@ -15,7 +15,6 @@ export function AdmRoutes(){
             <Route path='/details' element={<Details/>}/>
             <Route path='/add' element={<AddDish/>}/>
             <Route path='/edit' element={<EditDish/>}/>
-
 
         </Routes>
     )

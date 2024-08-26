@@ -4,10 +4,12 @@ import { TfiReceipt } from "react-icons/tfi";
 
 import {Button} from '../../components/button'
 
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import LogoSignSignUp from '../../assets/logo.png'
 import { useState,useEffect } from 'react';
+
+import {useAuth} from '../../hook/auth'
 
 
 
@@ -16,14 +18,23 @@ export function Header({children ,orderAmount = 0}){
 
     const [orderAmountLabel , setOrderAmountLabel] = useState(orderAmount)
 
+    const {signOut, user} = useAuth();
 
+    let isAdm = user.role === 'admin';
+
+
+    const navigate = useNavigate();
+
+    function handleAddDish(){
+       navigate('/add');
+    }
+    
 
     useEffect(() => {
         setOrderAmountLabel(orderAmount);
     },[orderAmountLabel] )
 
 
-    let isAdm = false;
 
     return(
          <HeaderContainer >
@@ -38,7 +49,7 @@ export function Header({children ,orderAmount = 0}){
             
             >
                 {
-                    isAdm ? <Button>NovoPrato</Button> :
+                    isAdm ? <Button onClick={handleAddDish}>NovoPrato</Button> :
                 <Button icon={TfiReceipt}>
                    pedidos
                     <span>{orderAmount}</span>
@@ -46,7 +57,9 @@ export function Header({children ,orderAmount = 0}){
                 </Button>
                 }
             </ButtonContainer>
-            <LogOut>
+            <LogOut
+             onClick={signOut}
+             >
                 <FiLogOut/>
             </LogOut>
 

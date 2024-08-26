@@ -5,18 +5,22 @@ import {AddRemoveOrder} from '../../components/IcludeOrder'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { useAuth} from '../../hook/auth';
 
 
 export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrders,...rest}){
 
+    const{user} = useAuth();
+
+    let isAdm = user.role === 'admin';
 
     const navigate = useNavigate();
 
     function handleDishDetails(){
-       navigate('/detalhes');
+       navigate('/details');
     }
     function handleDishEdit(){
-        navigate('/editar');
+        navigate('/edit');
     }
     
     
@@ -26,7 +30,6 @@ export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrde
         setActive(!active);
     };
     
-    let isAdm = false;
 
   
 
