@@ -1,7 +1,8 @@
+import { useEffect , useState} from "react";
 import { FiSearch } from "react-icons/fi";
 import {DetailsContainer , DishContainer} from './styles'
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { PiCaretLeftBold } from "react-icons/pi";
 
@@ -12,29 +13,38 @@ import {IngredientsTags} from '../../components/IngredientsTags'
 import {AddRemoveOrder} from '../../components/IcludeOrder'
 
 import CamaraoImg from '../../assets/dishImages/Camarao.png'
+
+import { api } from "../../service/api";
+
  
 export function Details(){
     
 
-    const navigate = useNavigate();
+    const [data,setData] = useState({})
 
+    const navigate = useNavigate();
+    const params = useParams();
+    
     function handleBack(){
 
         navigate(-1)
     }
 
-    const Dishs = {
-        category: 'meal',
-        ID:1,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, culpa accusantium nostrum cupiditate, explicabo eligendi id error velit optio iste consequatur. Dolorum excepturi eius illum culpa dolores nostrum magnam animi!',
-        price:'R$ 20,99',
-        ingredient:['camarao' , 'pesto' , 'spaguetti']
-    }
+
 
     
+    useEffect(() => {
+
+        async function fetchDish(){
+          const response =  await api.get(`dishes/${params.id}`);
+          setData(response.data);
+
+          console.log(response.data)
     
+        }
+        fetchDish();
+    
+      } , [])
     
     return(
         <DetailsContainer>
@@ -45,40 +55,40 @@ export function Details(){
             />
             
             </Header>
+                { data &&
             <main>
             <TextButton
              title='Voltar'
              icon={PiCaretLeftBold}
              onClick={handleBack}   
             />
-              <DishContainer>
               
+              <DishContainer>
 
                 <div className='Img'>
-                    <img src={Dishs.dishImg} alt="" />
+                    <img src={data.image} alt="" />
                 </div>
 
                 <div className='food-description'>
-                    <h1>{Dishs.dishName}</h1>
+                    <h1>{data.name}</h1>
 
-                    <p>{Dishs.description}</p>
+                    <p>{data.description}</p>
 
                     <div className='ingredients'>
-                    {
-                        Dishs.ingredient.map((tag , index) => (
+                    {data.ingredients &&
+                        data.ingredients.map((ingredient , index) => (
                             <IngredientsTags
                             key={String(index)}
-                            title={tag}
+                            title={ingredient.name}
                             />
                         ))
                     }
 
                 </div>
-                    <AddRemoveOrder price={Dishs.price}/> 
+                    <AddRemoveOrder price={data.price}/> 
                     
                 
                 </div>
-
 
               </DishContainer>
 
@@ -86,6 +96,7 @@ export function Details(){
 
 
             </main>
+                }
 
             <Footer/>
 

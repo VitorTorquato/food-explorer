@@ -23,6 +23,7 @@ export function Home(){
  
 
     const Dishs = [
+     
         {
         category: 'meal',
         ID:1,
@@ -31,119 +32,26 @@ export function Home(){
         description:'Massa fresca com camarões e pesto.',
         price:'R$ 20,99'
     },
+            
         {
-        category: 'meal',
+        category: 'desert',
         ID:2,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
+        dishImg:prune,
+        dishName:'Prugna pie',
+        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
         price:'R$ 20,99'
     },
+       
+       
         {
-        category: 'meal',
+        category: 'drinks',
         ID:3,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'meal',
-        ID:4,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'meal',
-        ID:5,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
-        price:'R$ 20,99'
-    },
-      
-        {
-        category: 'desert',
-        ID:6,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'desert',
-        ID:7,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'desert',
-        ID:8,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'desert',
-        ID:8,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'desert',
-        ID:9,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'drinks',
-        ID:10,
         dishImg:suco,
         dishName:'Prugna pie',
         description:'Polpa de maracaju batida com agua ou leite e gelo',
         price:'R$ 20,99'
-    },
-        {
-        category: 'drinks',
-        ID:11,
-        dishImg:suco,
-        dishName:'Suco de Maracuja',
-        description:'Polpa de maracaju batida com agua ou leite e gelo',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'drinks',
-        ID:12,
-        dishImg:suco,
-        dishName:'Suco de Maracuja',
-        description:'Polpa de maracaju batida com agua ou leite e gelo',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'drinks',
-        ID:13,
-        dishImg:suco,
-        dishName:'Suco de Maracuja',
-        description:'Polpa de maracaju batida com agua ou leite e gelo',
-        price:'R$ 20,99'
-    },
-        {
-        category: 'drinks',
-        ID:14,
-        dishImg:suco,
-        dishName:'Suco de Maracuja',
-        description:'Polpa de maracaju batida com agua ou leite e gelo',
-        price:'R$ 20,99'
-    },
+    }
+        
 ]
 
 const [myOrders , setMyOrders] = useState([]);
