@@ -5,10 +5,12 @@ import {AddRemoveOrder} from '../../components/IcludeOrder'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { api } from "../../service/api";
+
 import { useAuth} from '../../hook/auth';
 
 
-export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrders,...rest}){
+export function DishCard({data,handleMyOrders,...rest}){
 
     const{user} = useAuth();
 
@@ -16,14 +18,14 @@ export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrde
 
     const navigate = useNavigate();
 
-    function handleDishDetails(){
-       navigate('/details');
-    }
+    
     function handleDishEdit(){
         navigate('/edit');
     }
     
-    
+    function handleDishDetails(id){
+        navigate(`/details/${id}`);
+     }
     const [active, setActive] = useState(false);
     
     const handleClick = () => {
@@ -31,7 +33,7 @@ export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrde
     };
     
 
-  
+    const imageURL = `${api.defaults.baseURL}/files/${data.image}`
 
     return(
         <DishCardContainer
@@ -46,14 +48,14 @@ export function DishCard({dishId,dishImg,dishName,description,price,handleMyOrde
                 }
             </MarkDownOrEditBtn>
 
-                <DishDescriptionContainer onClick={handleDishDetails}>
+                <DishDescriptionContainer  onClick={() => handleDishDetails(data.id)}>
                     <DishImg   >
-                    <img src={dishImg} alt="dishImg" />
+                    <img src={imageURL} alt="dishImg" />
                     </DishImg>
-                    <h1>{dishName}</h1>
+                    <h1>{data.name}</h1>
                     
-                    <p>{description}</p>
-                    <span>{price}</span>
+                    <p>{data.description}</p>
+                    <span>{data.price}</span>
                 </DishDescriptionContainer>
            
                 {

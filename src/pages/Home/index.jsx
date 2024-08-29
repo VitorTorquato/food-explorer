@@ -1,67 +1,50 @@
 import { FiSearch } from "react-icons/fi";
 import { HomeContainer ,Hero,HeroImgContainer , HeroText} from "./styles";
-//import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+
+import { useState ,useEffect } from "react";
 
 import { Header } from "../../components/header"
 import { Section } from "../../components/section"
-import {Carrossel } from '../../components/Carrossel'
+import {Carrosel } from '../../components/Carrossel'
 import {DishCard} from '../../components/dishCard'
 import {Footer} from '../../components/footer'
 
 
 import heroImg from '../../assets/HeroImg.png'
-import CamaraoImg from '../../assets/dishImages/Camarao.png'
-import prune from '../../assets/dishImages/prune.png'
-import suco from '../../assets/dishImages/suco.png'
 
+import { api } from "../../service/api";
 
 
 export function Home(){
 
-
+  
  
-
-    const Dishs = [
-     
-        {
-        category: 'meal',
-        ID:1,
-        dishImg:CamaraoImg,
-        dishName:'Spaguetti Gambe',
-        description:'Massa fresca com camarões e pesto.',
-        price:'R$ 20,99'
-    },
-            
-        {
-        category: 'desert',
-        ID:2,
-        dishImg:prune,
-        dishName:'Prugna pie',
-        description:'Torta de amaixa com massa amanteigada, povilho e acucar',
-        price:'R$ 20,99'
-    },
-       
-       
-        {
-        category: 'drinks',
-        ID:3,
-        dishImg:suco,
-        dishName:'Prugna pie',
-        description:'Polpa de maracaju batida com agua ou leite e gelo',
-        price:'R$ 20,99'
-    }
-        
-]
-
-const [myOrders , setMyOrders] = useState([]);
+    const [dishes,setDishes] = useState([]);
+    const [search , setSearch] = useState("")   
+    const [myOrders , setMyOrders] = useState([]);
 
 
 function handleMyOrders(data){
         setMyOrders([...myOrders,data])
-        console.log(myOrders.length)
+        
 }
    
+
+
+
+
+useEffect(() => {
+    async function fetchDish(){
+        const response = await api.get(`/dishes?name=${search}`)
+
+        setDishes(response.data)
+       
+       
+    }
+
+    
+    fetchDish();
+}, [search ]);
     return(
 
         <HomeContainer>   
@@ -69,13 +52,12 @@ function handleMyOrders(data){
            orderAmount={myOrders.length}
         
 
-    
-      
-           
+
            >
            <FiSearch/>
             <input type="text"
                 placeholder="Busque por pratos ou ingredientes"
+                onChange={e => setSearch(e.target.value)}
             />
             
           
@@ -100,20 +82,23 @@ function handleMyOrders(data){
             <Section 
              title='Refeições'
             >
-         
-                <Carrossel>
+            <Carrosel>
                 {
-                        Dishs.filter(dish => dish.category === 'meal').map(dish => (
-                            <DishCard  className='keen-slider__slide'
-                                key={dish.ID}
-                                dishImg={dish.dishImg}
-                                dishName={dish.dishName}
-                                description={dish.description}
-                                price={dish.price}
-                                handleMyOrders={handleMyOrders}
+                        dishes.filter(dish => dish.category === 'meal').map(dish => (
+                            
                                 
-
-/>
+                                   
+                                        <DishCard className='keen-slider__slide'
+                                            key={dish.id}
+                                            data={dish}
+                                            handleMyOrders={handleMyOrders}
+                                        
+                                        
+                                        
+                                        />
+                                 
+                                
+                            
                         ))
                       
                         
@@ -121,24 +106,27 @@ function handleMyOrders(data){
                         
                         
                     }
-                </Carrossel>
-             
+               
+               </Carrosel>
                 
             </Section>
             
-
-            <Section title='Sobremesas'>
-            <Carrossel>
+      
+            <Section  title='Sobremesas'>
+            
+               <Carrosel
+            
+               >     
                 {
-                        Dishs.filter(dish => dish.category === 'desert').map(dish => (
-                            <DishCard  className='keen-slider__slide'
-                                key={dish.ID}
-                                dishImg={dish.dishImg}
-                                dishName={dish.dishName}
-                                description={dish.description}
-                                price={dish.price}
+                        dishes.filter(dish => dish.category === 'desert').map(dish => (
+                            
+                            <DishCard className='keen-slider__slide'
+                                key={dish.id}
+                                data={dish}
                                 handleMyOrders={handleMyOrders}
-                                />  
+                               
+                            />
+                       
                         ))
                       
                         
@@ -146,21 +134,21 @@ function handleMyOrders(data){
                         
                         
                     }
-                </Carrossel>
+               </Carrosel>
             </Section>
 
             <Section title='Bebidas'>
-            <Carrossel>
+              <Carrosel >      
                 {
-                        Dishs.filter(dish => dish.category === 'drinks').map(dish => (
-                            <DishCard  className='keen-slider__slide'
-                                key={dish.ID}
-                                dishImg={dish.dishImg}
-                                dishName={dish.dishName}
-                                description={dish.description}
-                                price={dish.price}
+                        dishes.filter(dish => dish.category === 'drinks').map(dish => (
+                            
+                            <DishCard className='keen-slider__slide'
+                                key={dish.id}
+                                data={dish}
                                 handleMyOrders={handleMyOrders}
+                                
                             />
+                    
                         ))
                       
                         
@@ -168,7 +156,7 @@ function handleMyOrders(data){
                         
                         
                     }
-                </Carrossel>
+               </Carrosel>
             </Section>
 
 

@@ -12,7 +12,6 @@ import { TextButton} from '../../components/textButton'
 import {IngredientsTags} from '../../components/IngredientsTags'
 import {AddRemoveOrder} from '../../components/IcludeOrder'
 
-import CamaraoImg from '../../assets/dishImages/Camarao.png'
 
 import { api } from "../../service/api";
 
@@ -24,14 +23,23 @@ export function Details(){
 
     const navigate = useNavigate();
     const params = useParams();
+
     
+    const [myOrders , setMyOrders] = useState([]);
+
+
+    function handleMyOrders(data){
+            setMyOrders([...myOrders,data])
+            
+    }
+
     function handleBack(){
 
         navigate(-1)
     }
 
 
-
+     const imageURL = `${api.defaults.baseURL}/files/${data.image}`
     
     useEffect(() => {
 
@@ -39,7 +47,7 @@ export function Details(){
           const response =  await api.get(`dishes/${params.id}`);
           setData(response.data);
 
-          console.log(response.data)
+        
     
         }
         fetchDish();
@@ -48,7 +56,9 @@ export function Details(){
     
     return(
         <DetailsContainer>
-            <Header>
+            <Header
+                orderAmount={myOrders.length}
+            >
                 <FiSearch/>
             <input type="text"
                 placeholder="Busque por pratos ou ingredientes"
@@ -66,7 +76,7 @@ export function Details(){
               <DishContainer>
 
                 <div className='Img'>
-                    <img src={data.image} alt="" />
+                    <img src={imageURL} alt="" />
                 </div>
 
                 <div className='food-description'>
@@ -85,7 +95,10 @@ export function Details(){
                     }
 
                 </div>
-                    <AddRemoveOrder price={data.price}/> 
+                    <AddRemoveOrder
+                     price={data.price}
+                     handleMyorders={handleMyOrders}
+                     /> 
                     
                 
                 </div>

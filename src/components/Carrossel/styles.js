@@ -4,7 +4,7 @@ export const CarrosselContainer = styled.div`
    
    position: relative;
    
-   
+
    
       
 
@@ -64,4 +64,3 @@ export const CarrosselContainer = styled.div`
    
 
 `;
-
