@@ -19,8 +19,8 @@ export function DishCard({data,handleMyOrders,...rest}){
     const navigate = useNavigate();
 
     
-    function handleDishEdit(){
-        navigate('/edit');
+    function handleDishEdit(id){
+        navigate(`/edit/${id}`);
     }
     
     function handleDishDetails(id){
@@ -41,7 +41,7 @@ export function DishCard({data,handleMyOrders,...rest}){
         >
             <MarkDownOrEditBtn>
                 {
-                    isAdm ? <FiEdit onClick={handleDishEdit}/> : <FiHeart onClick={handleClick}
+                    isAdm ? <FiEdit onClick={() => handleDishEdit(data.id)}/> : <FiHeart onClick={handleClick}
                     fill={active ? "red" : "none"}
                     color={active ? 'red' : null}
                     /> 

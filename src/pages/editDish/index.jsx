@@ -1,6 +1,7 @@
 import {EditDishContainer ,Form ,FileInput,UploadButton,InputWrapper,BtnSubmit,EditDishBtn } from './styles'
 
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate , useParams} from 'react-router-dom';
 
 import { FiSearch , FiUpload  } from "react-icons/fi";
 import { PiCaretLeftBold } from "react-icons/pi";
@@ -16,9 +17,32 @@ import {TextArea} from '../../components/texteArea'
 import {IngredientsItems} from '../../components/ingredientsItem'
 
 
+import { api } from '../../service/api';
 
 export function EditDish(){
+    
+    
+    const [ingredients,setIngredients] = useState([]);
+    const[newIngredients,setNewIngredients] = useState('')
 
+
+    function handleAddIngredients(e){
+            e.preventDefault();
+
+            setIngredients(prevState => [...prevState,newIngredients])
+            setNewIngredients('')
+    }
+
+    function handleRemoveIngredients(deleted){
+
+        window.event.preventDefault();
+
+
+        setIngredients(prevState => prevState.filter(tag => tag !== deleted))
+    }
+
+
+    const params = useParams();
     const navigate = useNavigate();
 
     function handleBack(){
@@ -27,7 +51,15 @@ export function EditDish(){
     }
 
 
+    async function handleDeleteDish(event){
+        event.preventDefault()
+        const confirm = window.confirm('Deseja realmente deleter esse prato ?');
 
+        if(confirm){
+            await api.delete(`/dishes/${params.id}`)
+            navigate('/')
+        }
+    }
     return(
         <EditDishContainer>
         <Header>
@@ -90,12 +122,26 @@ export function EditDish(){
                
                 <label htmlFor="ingridients">Ingredientes</label>
                 <div className='ingridients-tags'>
-                <IngredientsItems
-                value='alho'
-                />
+
+                {
+                    ingredients.map((ingredient,index) => (
+
+                        <IngredientsItems
+                        key={String(index)}
+                        value={ingredient}
+                        onClick={() => handleRemoveIngredients(ingredient)}
+                        />
+                        
+                    ))
+
+                }
+
+
                 <IngredientsItems 
                 isNew
                 placeholder='Adicionar'
+                onChange={e => setNewIngredients(e.target.value)}
+                onClick={handleAddIngredients}
                 />
                 </div>
                     
@@ -126,7 +172,9 @@ export function EditDish(){
            </div>
 
             <div className='Btn-save-update'>
-            <EditDishBtn>
+            <EditDishBtn 
+            onClick={handleDeleteDish}
+            >
                 Excluir prato
             </EditDishBtn>
 

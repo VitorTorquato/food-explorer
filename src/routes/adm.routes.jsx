@@ -14,7 +14,7 @@ export function AdmRoutes(){
             <Route path='/' element={<Home/>}/>
             <Route path='/details/:id' element={<Details/>}/>
             <Route path='/add' element={<AddDish/>}/>
-            <Route path='/edit' element={<EditDish/>}/>
+            <Route path='/edit/:id' element={<EditDish/>}/>
 
 
         </Routes>

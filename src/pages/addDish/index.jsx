@@ -1,5 +1,7 @@
 import {AddDishContainer ,Form ,FileInput,UploadButton,InputWrapper,BtnSubmit } from './styles'
 
+import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import { FiSearch , FiUpload  } from "react-icons/fi";
@@ -16,9 +18,36 @@ import {TextArea} from '../../components/texteArea'
 import {IngredientsItems} from '../../components/ingredientsItem'
 
 
+//import { api } from '../../service/api';
+
+
 
 export function AddDish(){
 
+
+    
+
+ 
+
+    const [ingredients,setIngredients] = useState([]);
+    const[newIngredients,setNewIngredients] = useState('')
+
+
+    function handleAddIngredients(e){
+            e.preventDefault();
+
+            setIngredients(prevState => [...prevState,newIngredients])
+            setNewIngredients('')
+    }
+
+    function handleRemoveIngredients(deleted){
+
+        window.event.preventDefault();
+
+
+        setIngredients(prevState => prevState.filter(tag => tag !== deleted))
+    }
+ 
 
     const navigate = useNavigate();
 
@@ -26,6 +55,7 @@ export function AddDish(){
 
         navigate(-1)
     }
+
 
 
 
@@ -68,6 +98,7 @@ export function AddDish(){
                 id='dish-name'
                 placeholder='Ex.: Salada Ceasar'
                 type='text'
+              
                 />
                 </InputWrapper>
                 <InputWrapper className='catergory-input'>
@@ -77,11 +108,12 @@ export function AddDish(){
                 id='dish-category'
                 placeholder='Categoria'
                 list='category-list'
+      
                 />
                  <datalist id="category-list">
-                    <option value="Refeição"/>
-                    <option value="Sobremesa"/>
-                    <option value="Bebida"/>
+                    <option value="meal"/>
+                    <option value="desert"/>
+                    <option value="drinks"/>
                 </datalist>
                 </InputWrapper>
             </div>
@@ -91,12 +123,24 @@ export function AddDish(){
                
                 <label htmlFor="ingridients">Ingredientes</label>
                 <div className='ingridients-tags'>
-                <IngredientsItems
-                value='alho'
-                />
-                <IngredientsItems 
+                {
+                    ingredients.map((ingredient,index) => (
+
+                        <IngredientsItems
+                        key={String(index)}
+                        value={ingredient}
+                        onClick={() => handleRemoveIngredients(ingredient)}
+                        />
+                        
+                    ))
+
+                }
+
+<IngredientsItems 
                 isNew
                 placeholder='Adicionar'
+                onChange={e => setNewIngredients(e.target.value)}
+                onClick={handleAddIngredients}
                 />
                 </div>
                     
@@ -110,6 +154,7 @@ export function AddDish(){
                 id='price'
                 placeholder='R$ 00,00'
                 type='text'
+                onChange={e => setPrice(e.target.value)}
                 />
                 </InputWrapper>
 
@@ -118,6 +163,7 @@ export function AddDish(){
                 <TextArea 
                 id='text_area'
                 placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+            
                 />
                 </InputWrapper>
 
@@ -127,7 +173,9 @@ export function AddDish(){
            </div>
 
             <div className='Btn-save-update'>
-                <BtnSubmit>
+                <BtnSubmit
+             
+                >
                     Salvar as alterações
                 </BtnSubmit>
             </div>
