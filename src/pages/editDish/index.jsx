@@ -20,6 +20,12 @@ import {IngredientsItems} from '../../components/ingredientsItem'
 import { api } from '../../service/api';
 
 export function EditDish(){
+
+    const [name,setName] = useState('');
+    const [category,setCategory] = useState('');
+    const [price,setPrice] = useState('');
+    const [description,setDescription] = useState('');
+    const [image,setImage] = useState(null);
     
     
     const [ingredients,setIngredients] = useState([]);
@@ -43,11 +49,50 @@ export function EditDish(){
 
 
     const params = useParams();
+     
+
     const navigate = useNavigate();
 
     function handleBack(){
 
         navigate(-1)
+    }
+
+    async function handleUpdateDish(){
+        window.event.preventDefault();
+
+
+        try{
+          
+
+     
+
+            if(image){
+                const fileImage = new FormData()
+
+                fileImage.append('image' , image)
+
+                await api.patch(`dishes/image/${params.id}` , fileImage)
+
+            }
+
+            await api.put(`dishes/${params.id}` ,{
+                name,
+                category,
+                price,
+                description,
+                ingredients
+            })
+
+            alert('Prato editado com sucesso!')
+
+        }catch(error){
+            if(error.response){
+                alert(error.response.data.message)
+            }else{
+                alert('Nao foi possivel editar o prato o prato')
+            }
+        }
     }
 
 
@@ -85,11 +130,17 @@ export function EditDish(){
  
             <div className='first-row-form'>
                 <InputWrapper className='img-input'>
-                <label htmlFor="Dish-img">Imagem do prato</label>
-                <FileInput id="Dish-img" type="file" />
+                <label htmlFor="Dish-img">
+                    
+                    </label>
+                <FileInput 
+                id="Dish-img"
+                type="file"
+                onChange={e => setImage(e.target.files[0])}
+                 />
                 <UploadButton  htmlFor="Dish-img">
                     <FiUpload/>
-                    Imagem do prato
+                    {image ? image.name : 'Imagem do prato'}
                 </UploadButton>
                 </InputWrapper>
                 <InputWrapper className='name-input'>
@@ -99,6 +150,7 @@ export function EditDish(){
                 id='dish-name'
                 placeholder='Ex.: Salada Ceasar'
                 type='text'
+                onChange={e => setName(e.target.value)}
                 />
                 </InputWrapper>
                 <InputWrapper className='catergory-input'>
@@ -108,11 +160,12 @@ export function EditDish(){
                 id='dish-category'
                 placeholder='Categoria'
                 list='category-list'
+                onChange={e => setCategory(e.target.value)}
                 />
                  <datalist id="category-list">
-                    <option value="Refeição"/>
-                    <option value="Sobremesa"/>
-                    <option value="Bebida"/>
+                    <option value="meal"/>
+                    <option value="desert"/>
+                    <option value="drinks"/>
                 </datalist>
                 </InputWrapper>
             </div>
@@ -155,6 +208,7 @@ export function EditDish(){
                 id='price'
                 placeholder='R$ 00,00'
                 type='text'
+                onChange={e => setPrice(e.target.value)}
                 />
                 </InputWrapper>
 
@@ -163,6 +217,7 @@ export function EditDish(){
                 <TextArea 
                 id='text_area'
                 placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
+                onChange={e => setDescription(e.target.value)}
                 />
                 </InputWrapper>
 
@@ -178,7 +233,9 @@ export function EditDish(){
                 Excluir prato
             </EditDishBtn>
 
-            <BtnSubmit>
+            <BtnSubmit
+            onClick={handleUpdateDish}
+            >
                  Salvar as alterações
             </BtnSubmit>
             </div>

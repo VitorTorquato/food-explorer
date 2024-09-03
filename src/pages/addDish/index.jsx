@@ -18,14 +18,17 @@ import {TextArea} from '../../components/texteArea'
 import {IngredientsItems} from '../../components/ingredientsItem'
 
 
-//import { api } from '../../service/api';
+import { api } from '../../service/api';
 
 
 
 export function AddDish(){
 
 
-    
+    const [name,setName] = useState('');
+    const [category,setCategory] = useState('');
+    const [price,setPrice] = useState('');
+    const [description,setDescription] = useState('');
 
  
 
@@ -54,6 +57,36 @@ export function AddDish(){
     function handleBack(){
 
         navigate(-1)
+    }
+
+
+    async function handleCreateDish(){
+
+        window.event.preventDefault();
+
+        try{
+            if(!name || !category || !price || !description)
+            alert('Favor informar todos os campos!')
+
+
+           const response = await api.post('dishes' , {
+                name,
+                category,
+                ingredients,
+                price,
+                description
+            })
+            console.log(response)
+            alert('prato criado com sucesso!')
+            //const {id} = response.data
+
+        }catch(error){
+            if(error.response){
+                alert(error.response.data.message)
+            }else{
+                alert('Nao foi possivel cadastrar o prato')
+            }
+        }
     }
 
 
@@ -98,6 +131,7 @@ export function AddDish(){
                 id='dish-name'
                 placeholder='Ex.: Salada Ceasar'
                 type='text'
+                onChange={e => setName(e.target.value)}
               
                 />
                 </InputWrapper>
@@ -108,6 +142,7 @@ export function AddDish(){
                 id='dish-category'
                 placeholder='Categoria'
                 list='category-list'
+                onChange={e => setCategory(e.target.value)}
       
                 />
                  <datalist id="category-list">
@@ -163,7 +198,7 @@ export function AddDish(){
                 <TextArea 
                 id='text_area'
                 placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
-            
+                onChange={e => setDescription(e.target.value)}
                 />
                 </InputWrapper>
 
@@ -174,7 +209,7 @@ export function AddDish(){
 
             <div className='Btn-save-update'>
                 <BtnSubmit
-             
+                onClick={handleCreateDish}
                 >
                     Salvar as alterações
                 </BtnSubmit>

@@ -18,12 +18,8 @@ export function AddRemoveOrder({price,handleMyorders}){
     
     const navigate = useNavigate();
 
-    function handleEditDish(){
-        navigate('/edit')
-    }
    
     const [AddRemoveDish , setAddRemoveDish] = useState(0);
-
 
     function addDish(){
         setAddRemoveDish(prevState => {
@@ -65,7 +61,7 @@ export function AddRemoveOrder({price,handleMyorders}){
                 <div className="IcludeOrderBtn">
                 {
 
-                    isAdm ?  <ButtonOrder  onClick={handleEditDish}>Editar Prato</ButtonOrder> : <ButtonOrder onClick={() => {
+                    isAdm ?  <></> : <ButtonOrder onClick={() => {
                         if(AddRemoveDish === 0){
                             return
                         }else{

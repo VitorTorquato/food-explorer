@@ -61,6 +61,7 @@ export function DishCard({data,handleMyOrders,...rest}){
                 {
                   isAdm ? <></> : <AddRemoveOrder
                     handleMyorders={handleMyOrders}
+                   
                   />
         
                 }

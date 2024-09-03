@@ -27,7 +27,8 @@ export function Details(){
     
     const [myOrders , setMyOrders] = useState([]);
 
-
+    
+     
     function handleMyOrders(data){
             setMyOrders([...myOrders,data])
             
@@ -98,6 +99,7 @@ export function Details(){
                     <AddRemoveOrder
                      price={data.price}
                      handleMyorders={handleMyOrders}
+                    
                      /> 
                     
                 
