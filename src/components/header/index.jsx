@@ -1,6 +1,6 @@
-import {HeaderContainer, LogoImg, Search,LogOut,ButtonContainer} from './styles'
+import {HeaderContainer, LogoImg, Search,LogOut,ButtonContainer,ButtonMobile,Menu} from './styles'
 import { FiLogOut} from "react-icons/fi";
-import { TfiReceipt } from "react-icons/tfi";
+import { TfiReceipt,TfiMenu } from "react-icons/tfi";
 
 import {Button} from '../../components/button'
 
@@ -38,6 +38,10 @@ export function Header({children ,orderAmount = 0}){
 
     return(
          <HeaderContainer >
+            <Menu>
+                <TfiMenu/>
+            </Menu>
+
             <LogoImg>
                 <img src={LogoSignSignUp} alt="logo Food explorer" />
                 <h1>Food explorer</h1>
@@ -56,7 +60,15 @@ export function Header({children ,orderAmount = 0}){
                   
                 </Button>
                 }
+
             </ButtonContainer>
+
+            <ButtonMobile>
+                <TfiReceipt>
+                </TfiReceipt>
+                    <span>{orderAmount}</span>
+                
+            </ButtonMobile>
             <LogOut
              onClick={signOut}
              >

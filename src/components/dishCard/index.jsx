@@ -57,7 +57,6 @@ export function DishCard({data,handleMyOrders,...rest}){
                     <p>{data.description}</p>
                     <span>{data.price}</span>
                 </DishDescriptionContainer>
-           
                 {
                   isAdm ? <></> : <AddRemoveOrder
                     handleMyorders={handleMyOrders}
@@ -65,6 +64,7 @@ export function DishCard({data,handleMyOrders,...rest}){
                   />
         
                 }
+           
         
                 
         </DishCardContainer>

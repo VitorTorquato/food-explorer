@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const AddRemoveOrderContainer = styled.div`
 
 
-    max-width: fit-content;
+    max-width: 100%;
 
     display: flex;
     align-items: center;
@@ -33,6 +34,18 @@ export const AddRemoveOrderContainer = styled.div`
     }
 }
 
+@media(max-width:${DEVICE_BREAKPOINTS.SM}){
+    
+    flex-direction:column;
+
+    width:16.2rem;
+
+   
+    >span{
+        font-size: 1.6rem;
+    }
+}
+
 `;
 
 
@@ -52,5 +65,10 @@ export const ButtonOrder = styled.button`
     align-items: center;
     justify-content: center;
     gap: 1.2rem;
+
+    @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+            height: 3.2rem;
+            font-size:1.4rem ;
+        }
 
 `;

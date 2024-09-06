@@ -9,7 +9,7 @@ export const SignUpContainer = styled.div`
         height: 100vh;
         display: flex;
         padding: 2rem  9rem 2rem 10rem;
-        gap: 16rem;
+        gap: 12rem;
 
         @media(max-width:${DEVICE_BREAKPOINTS.MD}){
             flex-direction: column;
@@ -34,7 +34,7 @@ export const Form = styled.form`
 
  border: 16px;
 
- gap: 3.2rem;
+ gap: 3rem;
 
  background-color: ${theme.COLORS.DARK_700};
 
@@ -84,6 +84,7 @@ export const LogoImg = styled.div`
         gap:1.8rem;
 
         >h1{
+            font-size: 2.8rem;
             font-weight: bold;
         }
 

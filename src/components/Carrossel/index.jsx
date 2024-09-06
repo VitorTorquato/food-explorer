@@ -1,6 +1,6 @@
 import {CarrosselContainer} from './styles'
 import { useState,useEffect } from 'react';
-import 'keen-slider/keen-slider.min.css'
+import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from 'keen-slider/react';
 
 
@@ -15,22 +15,30 @@ export function Carrosel({children}){
    const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider({
-      initial: 0,
+      initial: 1,
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
       },
       created() {
         setLoaded(true)
       },
+      mode: "free",
       breakpoints: {
-        "(min-width: 350px)": {
-          slides: { perView: 2, spacing: 5 },
+        "(min-width:320px)":{
+          slides:{perView:1}
         },
-        "(min-width: 1000px)": {
+        "(min-width:425px)":{
+          slides:{perView:1,spacing:1}
+        },
+        "(min-width: 768px)": {
+          slides: { perView: 2, spacing: 2 },
+        },
+        "(min-width: 1024px)": {
           slides: { perView: 3, spacing: 10 },
         },
+     
       },
-      slides: { perView: 1 },
+   
     })
 
     function Arrow(props) {

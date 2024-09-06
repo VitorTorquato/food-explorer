@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const FooterContainer = styled.footer`
         
@@ -27,6 +28,9 @@ export const FooterContainer = styled.footer`
                 height: 3rem;
                 color: ${({theme}) => theme.COLORS.LIGHT_700};
             }
+
+            
+
         }
         
 
@@ -34,5 +38,27 @@ export const FooterContainer = styled.footer`
             font-size: 1.4rem;
             color: ${({theme}) => theme.COLORS.LIGHT_200};
         }
+
+        @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+        padding: 1.6rem 2.4rem;
+
+        span{
+            font-size: .8rem;
+        }
+       .footer-logo{
+
+        gap: .3rem;
+        h1{
+            font-size: 1.4rem;
+        }
+
+        img{
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+
+       }
+    }
+
 
 `;

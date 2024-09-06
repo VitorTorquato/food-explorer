@@ -45,10 +45,10 @@ export function Details(){
     useEffect(() => {
 
         async function fetchDish(){
-          const response =  await api.get(`dishes/${params.id}`);
+          const response =  await api.get(`dishes/${params.id}`,{withCredentials:true});
           setData(response.data);
 
-        
+            console.log(response.data)
     
         }
         fetchDish();
@@ -73,8 +73,9 @@ export function Details(){
              icon={PiCaretLeftBold}
              onClick={handleBack}   
             />
-              
-              <DishContainer>
+             
+    
+                            <DishContainer>
 
                 <div className='Img'>
                     <img src={imageURL} alt="" />
@@ -108,6 +109,7 @@ export function Details(){
               </DishContainer>
 
 
+            
 
 
             </main>

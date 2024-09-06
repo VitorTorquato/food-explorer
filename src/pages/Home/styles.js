@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const  HomeContainer = styled.div`
 
         width: 100%;
         height: 100vh;
+
 
 
 
@@ -16,6 +18,7 @@ export const  HomeContainer = styled.div`
         "footer";
 
         overflow: auto;
+    
 
 
         > main{
@@ -24,6 +27,9 @@ export const  HomeContainer = styled.div`
                 width: 100%;
                 max-width: 1122px;
                 margin: 2.6rem auto;
+                
+                padding: 1rem;
+               
                 
         }
 
@@ -45,7 +51,25 @@ export const Hero = styled.div`
         background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
         
 
-       
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+                width: 100%;
+                height:18rem;
+                
+                margin-top: 2rem;
+
+                
+        }
+
+        @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                width: 100%;
+                height: 12rem;
+
+                margin-top: 2rem;
+                
+        }
+     
+      
+      
 
 `;
 
@@ -54,6 +78,51 @@ export const HeroImgContainer = styled.figure`
         object-fit: cover;
         top: -14rem;
         left: -7rem;
+
+        >img{
+                width: 100%;
+        }
+
+    
+
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+               width: 40rem;
+
+                top: -6.3rem;
+                left: -3rem;
+
+                
+        }
+
+        @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+               width: 24rem;
+
+                top: -2.5rem;
+                left: -3rem;
+
+                
+        }
+
+        @media(max-width:${DEVICE_BREAKPOINTS.XS}){
+               width: 22rem;
+
+                top: -1.3rem;
+                left: -3rem;
+
+                
+        }
+
+        @media(max-width:${DEVICE_BREAKPOINTS.XXS}){
+               width: 20rem;
+
+                top: -.3rem;
+                left: -3rem;
+
+                
+        }
+
+       
+
 `;
 
 export const HeroText = styled.div`
@@ -71,15 +140,104 @@ export const HeroText = styled.div`
                   font-weight: 500;
                   
                   line-height: 3rem;
-                  
-        }
 
-        >p{
-                font-family: 'Roboto' , sans-serif;
-                font-size: 1.6rem;
-                font-weight: 400;
-                text-align: justify;
-                color: ${({theme}) => theme.COLORS.LIGHT_300};
-        }
+                  
+                }
+                
+                >p{
+                        font-family: 'Roboto' , sans-serif;
+                        font-size: 1.6rem;
+                        font-weight: 400;
+                        text-align: stify;
+                }
+
+       
+                
+            
+          
+                @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+                width:34rem;
+                gap: 1rem;
+
+                top: 4rem;
+                left: 40rem;
+
+                
+          >h1{
+                  font-size: 2.4rem;
+                  
+                }
+                
+                >p{
+                        font-size: 1.6rem;
+                }
+                
+        }    
+        
+        
+        @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                width:20rem;
+                gap: 1rem;
+
+                top: 3rem;
+                left: 20rem;
+
+                
+          >h1{
+                  font-size: 1.6rem;
+                  
+                }
+                
+                >p{
+                        font-size: 1.4rem;
+                }
+                
+        }  
+
+        @media(max-width:${DEVICE_BREAKPOINTS.XS}){
+                width:16rem;
+                gap: 1rem;
+
+                top: 3rem;
+                left: 20rem;
+
+                
+          >h1{
+                  font-size: 1.4rem;
+                  
+                }
+                
+                >p{
+                        font-size: 1rem;
+                }
+                
+        }  
+
+        @media(max-width:${DEVICE_BREAKPOINTS.XXS}){
+                width:14rem;
+                gap: .5rem;
+
+                top: 3rem;
+                left: 16rem;
+
+                
+          >h1{
+                  font-size: 1.2rem;
+                  
+                }
+                
+                >p{
+                        font-size: .8rem;
+                }
+                
+        }  
+        
+       
+           
+
+      
+
+
+
 `;
 

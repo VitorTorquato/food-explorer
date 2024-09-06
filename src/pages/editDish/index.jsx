@@ -61,7 +61,8 @@ export function EditDish(){
     async function handleUpdateDish(){
         window.event.preventDefault();
 
-
+        if(!name || !category || !price || !description)
+            alert('Favor informar todos os campos!')
         try{
           
 
@@ -85,6 +86,7 @@ export function EditDish(){
             })
 
             alert('Prato editado com sucesso!')
+            navigate('/')
 
         }catch(error){
             if(error.response){

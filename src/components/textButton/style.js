@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const TextButtonContainer = styled.button`
 
@@ -20,4 +21,8 @@ export const TextButtonContainer = styled.button`
                 color:${({theme}) => theme.COLORS.LIGHT_300};    
         }
 
+
+        @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+                font-size: 2.4rem;
+        }
 `;

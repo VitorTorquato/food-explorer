@@ -78,7 +78,7 @@ export function AddDish(){
             })
             console.log(response)
             alert('prato criado com sucesso!')
-            //const {id} = response.data
+            navigate('/')
 
         }catch(error){
             if(error.response){

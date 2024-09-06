@@ -1,12 +1,34 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const CarrosselContainer = styled.div`
    
    position: relative;
-   
 
-   
-      
+     width: 100%;
+     overflow: hidden;
+    
+    
+     .keen-slider {
+    display: flex;
+    width: 80vw;  /* Garante que o slider ocupe o tamanho do container */
+    margin: 0 auto;
+  
+  
+    
+    @media(max-width:${DEVICE_BREAKPOINTS.MD}){     
+            min-width: 20vw;
+            margin: 0 auto;
+
+        }
+
+  }
+
+  .keen-slider__slide {
+    width: 100%;
+  
+  }
+ 
 
    .right-opacity{
     background: linear-gradient(to right , #000A0F 40% , rgba(0, 10, 15, 0.272541) 90%,
@@ -30,9 +52,13 @@ export const CarrosselContainer = styled.div`
          content: "";
    }
 
-  
+   @media(max-width:${DEVICE_BREAKPOINTS.MD}){     
+            .left-opacity,
+            .right-opacity{
+              display: none;
+            }
 
-
+        }
 
 
 .arrow {
@@ -61,6 +87,7 @@ export const CarrosselContainer = styled.div`
   fill: rgba(255, 255, 255, 0.5);
 }
 
-   
+
+
 
 `;

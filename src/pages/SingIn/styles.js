@@ -7,7 +7,7 @@ export const SignInContainer = styled.div`
         height: 100vh;
         display: flex;
         padding: 2rem  9rem 2rem 10rem;
-        gap: 16rem;
+        gap: 12rem;
 
 
         @media(max-width:${DEVICE_BREAKPOINTS.MD}){
@@ -81,13 +81,17 @@ export const LogoImg = styled.div`
         gap:1.8rem;
 
         >h1{
+            font-size: 2.8rem;
             font-weight: bold;
         }
 
         @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+               
                 h1{
-                    font-size: 2.4rem
-                }
+                    font-size: 2.4rem                }
+
+        
+        }        
 
         >img{
             width: 4rem;

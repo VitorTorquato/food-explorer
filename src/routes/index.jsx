@@ -9,9 +9,10 @@ import {USER_ROLE} from '../utils/roles';
 
 import {useAuth} from '../hook/auth';
 
+
 export function Routes(){
 
-    const {user} = useAuth();
+    const {user } = useAuth();
 
     function AccessRoutes(){
         switch(user.role){
@@ -24,6 +25,8 @@ export function Routes(){
 
         }
     }
+
+  
 
     return(
         <BrowserRouter>

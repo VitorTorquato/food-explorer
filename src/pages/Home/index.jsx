@@ -87,8 +87,8 @@ useEffect(() => {
                         dishes.filter(dish => dish.category === 'meal').map(dish => (
                             
                                 
-                                   
-                                        <DishCard className='keen-slider__slide'
+                            <div key={String(dish.id)} className='keen-slider__slide'>
+                                        <DishCard 
                                             key={dish.id}
                                             data={dish}
                                             handleMyOrders={handleMyOrders}
@@ -96,7 +96,7 @@ useEffect(() => {
                                         
                                         
                                         />
-                                 
+                              </div>   
                                 
                             
                         ))
@@ -119,13 +119,14 @@ useEffect(() => {
                >     
                 {
                         dishes.filter(dish => dish.category === 'desert').map(dish => (
-                            
-                            <DishCard className='keen-slider__slide'
+                            <div key={String(dish.id)} className='keen-slider__slide'>
+                            <DishCard 
                                 key={dish.id}
                                 data={dish}
                                 handleMyOrders={handleMyOrders}
                                
                             />
+                            </div>
                        
                         ))
                       
@@ -141,14 +142,14 @@ useEffect(() => {
               <Carrosel >      
                 {
                         dishes.filter(dish => dish.category === 'drinks').map(dish => (
-                            
-                            <DishCard className='keen-slider__slide'
+                            <div key={String(dish.id)} className='keen-slider__slide'>
+                            <DishCard 
                                 key={dish.id}
                                 data={dish}
                                 handleMyOrders={handleMyOrders}
                                 
                             />
-                    
+                    </div>
                         ))
                       
                         

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 
 export const ButtonContainer = styled.button`
@@ -38,5 +39,7 @@ export const ButtonContainer = styled.button`
 
             
         }
+
+      
 
 `;
