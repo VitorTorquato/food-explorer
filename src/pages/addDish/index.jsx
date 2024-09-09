@@ -16,7 +16,7 @@ import {Section} from '../../components/section'
 import {Input} from '../../components/input'
 import {TextArea} from '../../components/texteArea'
 import {IngredientsItems} from '../../components/ingredientsItem'
-
+import {SideMenu} from '../../components/MobileMenu'
 
 import { api } from '../../service/api';
 
@@ -34,6 +34,7 @@ export function AddDish(){
 
     const [ingredients,setIngredients] = useState([]);
     const[newIngredients,setNewIngredients] = useState('')
+    const [menuIsOpen , setMenuIsOpen] = useState(false);
 
 
     function handleAddIngredients(e){
@@ -94,7 +95,15 @@ export function AddDish(){
 
     return(
         <AddDishContainer>
-        <Header>
+
+            <SideMenu
+             menuIsOpen={menuIsOpen}
+             onCloseMenu={() => setMenuIsOpen(false)}
+             />
+
+        <Header
+        onOpenMenu={() => setMenuIsOpen(true)}
+        >
         <FiSearch/>
     <input type="text"
         placeholder="Busque por pratos ou ingredientes"

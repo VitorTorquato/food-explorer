@@ -11,7 +11,7 @@ import { Footer} from '../../components/footer'
 import { TextButton} from '../../components/textButton'
 import {IngredientsTags} from '../../components/IngredientsTags'
 import {AddRemoveOrder} from '../../components/IcludeOrder'
-
+import {SideMenu} from '../../components/MobileMenu'
 
 import { api } from "../../service/api";
 
@@ -26,6 +26,7 @@ export function Details(){
 
     
     const [myOrders , setMyOrders] = useState([]);
+    const [menuIsOpen , setMenuIsOpen] = useState(false);
 
     
      
@@ -48,7 +49,7 @@ export function Details(){
           const response =  await api.get(`dishes/${params.id}`,{withCredentials:true});
           setData(response.data);
 
-            console.log(response.data)
+         console.log(response.data)
     
         }
         fetchDish();
@@ -57,7 +58,12 @@ export function Details(){
     
     return(
         <DetailsContainer>
+             <SideMenu
+             menuIsOpen={menuIsOpen}
+             onCloseMenu={() => setMenuIsOpen(false)}
+             />
             <Header
+                onOpenMenu={() => setMenuIsOpen(true)}
                 orderAmount={myOrders.length}
             >
                 <FiSearch/>

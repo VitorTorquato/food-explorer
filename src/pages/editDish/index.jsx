@@ -15,6 +15,7 @@ import {Section} from '../../components/section'
 import {Input} from '../../components/input'
 import {TextArea} from '../../components/texteArea'
 import {IngredientsItems} from '../../components/ingredientsItem'
+import {SideMenu} from '../../components/MobileMenu'
 
 
 import { api } from '../../service/api';
@@ -26,6 +27,7 @@ export function EditDish(){
     const [price,setPrice] = useState('');
     const [description,setDescription] = useState('');
     const [image,setImage] = useState(null);
+    const [menuIsOpen , setMenuIsOpen] = useState(false);
     
     
     const [ingredients,setIngredients] = useState([]);
@@ -109,7 +111,13 @@ export function EditDish(){
     }
     return(
         <EditDishContainer>
-        <Header>
+             <SideMenu
+             menuIsOpen={menuIsOpen}
+             onCloseMenu={() => setMenuIsOpen(false)}
+             />
+        <Header
+        onOpenMenu={() => setMenuIsOpen(true)}
+        >
         <FiSearch/>
     <input type="text"
         placeholder="Busque por pratos ou ingredientes"
