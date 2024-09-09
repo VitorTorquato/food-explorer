@@ -8,6 +8,7 @@ import { Section } from "../../components/section"
 import {Carrosel } from '../../components/Carrossel'
 import {DishCard} from '../../components/dishCard'
 import {Footer} from '../../components/footer'
+import {SideMenu} from '../../components/MobileMenu'
 
 
 import heroImg from '../../assets/HeroImg.png'
@@ -22,6 +23,7 @@ export function Home(){
     const [dishes,setDishes] = useState([]);
     const [search , setSearch] = useState("")   
     const [myOrders , setMyOrders] = useState([]);
+    const [menuIsOpen , setMenuIsOpen] = useState(false);
 
 
 function handleMyOrders(data){
@@ -47,8 +49,14 @@ useEffect(() => {
 }, [search ]);
     return(
 
-        <HomeContainer>   
+        <HomeContainer>  
+             <SideMenu
+             menuIsOpen={menuIsOpen}
+             onCloseMenu={() => setMenuIsOpen(false)}
+             />
+
            <Header 
+           onOpenMenu={() => setMenuIsOpen(true)}
            orderAmount={myOrders.length}
         
 

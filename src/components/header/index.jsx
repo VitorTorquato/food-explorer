@@ -14,7 +14,7 @@ import {useAuth} from '../../hook/auth'
 
 
 
-export function Header({children ,orderAmount = 0}){
+export function Header({children ,orderAmount = 0,onOpenMenu}){
 
     const [orderAmountLabel , setOrderAmountLabel] = useState(orderAmount)
 
@@ -38,7 +38,7 @@ export function Header({children ,orderAmount = 0}){
 
     return(
          <HeaderContainer >
-            <Menu>
+            <Menu onClick={onOpenMenu}>
                 <TfiMenu/>
             </Menu>
 
