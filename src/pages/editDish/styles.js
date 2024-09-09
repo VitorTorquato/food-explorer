@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
+import { DEVICE_BREAKPOINTS } from "../../styles/breakPoints";
 
 export const EditDishContainer = styled.div`
 
@@ -24,8 +25,25 @@ width: 100%;
                 grid-area: content;
 
                 width: 100%;
-                max-width: 1122px;
+                max-width: 1024px;
                 margin: 4.2rem auto 15.5rem;
+                padding: 1rem;
+
+                @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+                        width: 74rem;
+                        padding:  0 6rem ;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                        width: 42rem;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.XS}){
+                        width: 36rem;
+                        padding: 0 4rem;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.XXS}){
+                        width: 32rem;
+                        padding: 0 2rem;
+                }
                 
         }
 
@@ -60,6 +78,30 @@ export const Form = styled.form`
         > .catergory-input{
                 width: 64rem;
         }
+
+        
+    @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+
+        justify-content: center;
+        > .img-input{
+                width: 100%
+        }
+
+        > .name-input{
+                width: 100%;
+        }
+
+        > .catergory-input{
+                width: 100%;
+        }
+
+     
+    }
+
     }
 
     > .second-row-grid{
@@ -80,6 +122,7 @@ export const Form = styled.form`
                 border-radius: 8px;
 
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
                 gap: 1.6rem;
 
@@ -97,23 +140,44 @@ export const Form = styled.form`
                 grid-area: textarea;
                 width: 100%;
                 margin-top: 3.2rem;
+             
                 
         }
+
+    
+
         
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+    
+        }
     }
 
     > .Btn-save-update{
-        
-        position: absolute;
+          
+            width: 100%;      
+            
 
         display: flex;
+        justify-content: end;
         gap: 3.2rem;
-        right: 0;
-        bottom: -80px;
+        margin-top: 3.2rem;
     }
 
 
 
+        
+
+//media Form component
+    @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+        display: flex;
+        flex-direction: column;
+       
+        margin: 0 auto;
+     
+    }
  
     
 
@@ -130,12 +194,24 @@ export const BtnSubmit = styled.button`
     background-color: ${({theme}) => theme.COLORS.TOMATO_400};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
 
+                 @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                      width:100% ;
+                      font-size: 1rem;
+                      padding: 1rem;
+                      
+                }
+            
    
 `;
 export const EditDishBtn = styled(BtnSubmit)`
     width:13.5rem ;
     background-color: ${({theme}) => theme.COLORS.DARK_800};
 
+    @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                      width:100% ;
+                     
+                }
+                        
 
 
  

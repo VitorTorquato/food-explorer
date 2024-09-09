@@ -5,6 +5,7 @@ export const TextAreaContainer = styled.textarea`
     height: 17.2rem;
 
     background-color: ${({theme}) => theme.COLORS.DARK_900};
+    color: ${({theme}) => theme.COLORS.LIGHT_100};
     resize: none;
 
     border: none;

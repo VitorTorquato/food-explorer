@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import theme from '../../styles/theme'
+import {DEVICE_BREAKPOINTS} from '../../styles/breakPoints'
 
 export const AddDishContainer = styled.div`
 
@@ -26,6 +27,22 @@ width: 100%;
                 width: 100%;
                 max-width: 1122px;
                 margin: 4.2rem auto 15.5rem;
+
+                @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+                        width: 74rem;
+                        padding:  0 6rem ;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                        width: 42rem;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.XS}){
+                        width: 36rem;
+                        padding: 0 4rem;
+                }
+                @media(max-width:${DEVICE_BREAKPOINTS.XXS}){
+                        width: 32rem;
+                        padding: 0 2rem;
+                }
                 
         }
 
@@ -60,6 +77,29 @@ export const Form = styled.form`
         > .catergory-input{
                 width: 64rem;
         }
+
+
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+
+        justify-content: center;
+        > .img-input{
+                width: 100%
+        }
+
+        > .name-input{
+                width: 100%;
+        }
+
+        > .catergory-input{
+                width: 100%;
+        }
+
+     
+    }
     }
 
     > .second-row-grid{
@@ -73,6 +113,7 @@ export const Form = styled.form`
 
         > .ingridiesnts-input{
                 grid-area: ingridients;
+            
 
                 >.ingridients-tags{
                 width:100%;
@@ -80,6 +121,7 @@ export const Form = styled.form`
                 border-radius: 8px;
 
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
                 gap: 1.6rem;
 
@@ -99,6 +141,12 @@ export const Form = styled.form`
                 margin-top: 3.2rem;
                 
         }
+        @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+    
+        }
         
     }
 
@@ -110,7 +158,14 @@ export const Form = styled.form`
     }
 
 
-
+    //media Form component
+    @media(max-width:${DEVICE_BREAKPOINTS.MD}){
+        display: flex;
+        flex-direction: column;
+       
+        margin: 0 auto;
+     
+    }
  
     
 
@@ -127,6 +182,12 @@ export const BtnSubmit = styled.button`
     background-color: ${({theme}) => theme.COLORS.TOMATO_400};
     color: ${({theme}) => theme.COLORS.LIGHT_100};
 
+    @media(max-width:${DEVICE_BREAKPOINTS.SM}){
+                      width:100% ;
+                      font-size: 1rem;
+                      padding: 1rem;
+                      
+                }
     
 
 `;

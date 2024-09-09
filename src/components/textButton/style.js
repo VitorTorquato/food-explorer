@@ -25,4 +25,7 @@ export const TextButtonContainer = styled.button`
         @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
                 font-size: 2.4rem;
         }
+        @media(max-width: ${DEVICE_BREAKPOINTS.SM}){
+                font-size: 1.6rem;
+        }
 `;
