@@ -46,7 +46,7 @@ export function Details(){
     useEffect(() => {
 
         async function fetchDish(){
-          const response =  await api.get(`dishes/${params.id}`,{withCredentials:true});
+          const response =  await api.get(`dishes/${params.id}`);
           setData(response.data);
 
          console.log(response.data)

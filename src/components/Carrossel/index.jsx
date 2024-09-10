@@ -64,11 +64,25 @@ export function Carrosel({children}){
 
 
     useEffect(() => {
+      const resizeHandler = () => {
+        if (instanceRef.current) {
+          instanceRef.current.update();
+        }
+      };
+  
+      window.addEventListener('resize', resizeHandler);
+  
+      // Força a atualização do slider 100ms após o componente ser montado
       setTimeout(() => {
         if (instanceRef.current) {
           instanceRef.current.update();
         }
-      }, 100);
+      }, 1000);
+  
+      // Cleanup do listener ao desmontar o componente
+      return () => {
+        window.removeEventListener('resize', resizeHandler);
+      };
     }, []);
     return(
 
