@@ -91,7 +91,7 @@ export const LogoImg = styled.div`
         
         @media(max-width:${DEVICE_BREAKPOINTS.MD}){
                 
-            flex: 0;
+            flex: auto;
 
             h1{
                     font-size: 2.4rem;
