@@ -95,9 +95,9 @@ export const HeroImgContainer = styled.figure`
         }
 
         @media(max-width:${DEVICE_BREAKPOINTS.SM}){
-               width: 24rem;
+               width: 22rem;
 
-                top: -2.5rem;
+                top: -1rem;
                 left: -3rem;
 
                 
@@ -176,11 +176,11 @@ export const HeroText = styled.div`
         
         
         @media(max-width:${DEVICE_BREAKPOINTS.SM}){
-                width:20rem;
+                width:18rem;
                 gap: 1rem;
 
                 top: 3rem;
-                left: 20rem;
+                left: 18rem;
 
                 
           >h1{
@@ -189,7 +189,7 @@ export const HeroText = styled.div`
                 }
                 
                 >p{
-                        font-size: 1.4rem;
+                        font-size: 1.2rem;
                 }
                 
         }  

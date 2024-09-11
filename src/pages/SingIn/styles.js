@@ -15,6 +15,7 @@ export const SignInContainer = styled.div`
             padding: 5rem 4.7rem 5rem 4.7rem;
             gap: 1.6rem;
             align-items: center;
+            justify-content: center;
 
             font-size: 1.4rem;
         }

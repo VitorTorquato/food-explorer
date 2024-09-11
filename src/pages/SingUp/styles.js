@@ -8,6 +8,7 @@ export const SignUpContainer = styled.div`
 
         height: 100vh;
         display: flex;
+
         padding: 2rem  9rem 2rem 10rem;
         gap: 12rem;
 
@@ -16,6 +17,8 @@ export const SignUpContainer = styled.div`
             padding: 5rem 4.7rem 5rem 4.7rem;
             gap: 1.6rem;
             align-items: center;
+            justify-content: center;
+            
 
             font-size: 1.4rem;
         }
